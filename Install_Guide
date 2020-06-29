@@ -1,11 +1,11 @@
 
-	.______  .____________._._______ .________.______  
-	:      \ : .____/\__ _:|: __   / |    ___/:_ _   \ 
+	.______  .____________._._______ .________.______
+	:      \ : .____/\__ _:|: __   / |    ___/:_ _   \
 	|       || : _/\   |  :||  |>  \ |___    \|   |   |
 	|   |   ||   /  \  |   ||  |>   \|       /| . |   |
-	|___|   ||_.: __/  |   ||_______/|__:___/ |. ____/ 
-	    |___|   :/     |___|            :      :/      
-	                                           :                                                          
+	|___|   ||_.: __/  |   ||_______/|__:___/ |. ____/
+	    |___|   :/     |___|            :      :/
+	                                           :
 		Installation guide....  for noobs
 
 
@@ -140,11 +140,11 @@ DISTDIR=/usr/distfiles
 
 and create it with:
 # mkdir /usr/distfiles
-		    
+
 		     Installing packages
 
 To install packages, we need to become root.
-$ su 
+$ su
 
 then we change to the directory (category) and then to the package we want to install.
 # cd /usr/pkgsrc/misc/figlet
@@ -178,10 +178,10 @@ Updating Packages: You can update a single package using make update.
 $ cd /usr/pkgsrc/
 $ git clone git://wip.pkgsrc.org/pkgsrc-wip.git wip
 
-To try packages 
+To try packages
 $ cd /usr/pkgsrc/wip/<package directory>
 $ doas make install
- 
+
 _____________________________________________________________
 
                        CREATE A USER
@@ -259,7 +259,7 @@ If you get xauth errors when starting WM with startx then fix /etc/hosts:
  ::1                     localhost hackbox.local hackbox
  127.0.0.1               localhost hackbox.local hackbox
 
-NOTE: "hackbox" is the name of my computer, should be the same as stated in /etc/rc.conf. 
+NOTE: "hackbox" is the name of my computer, should be the same as stated in /etc/rc.conf.
 "local" is the name I gave my DNS while installing.
 Set hostname in /etc/rc.conf with 'hostname=somehostname'
 
@@ -269,12 +269,12 @@ _____________________________________________________________
                        UPGRADING NETBSD
 _____________________________________________________________
 
-Be sure to refer to Pin's guide here: https://www.unitedbsd.com/d/110-upgrading-netbsd-using-sysinst 
+Be sure to refer to Pin's guide here: https://www.unitedbsd.com/d/110-upgrading-netbsd-using-sysinst
 
 
 			   SYSUPGRADE
 
-Using SYSUPGRADE is fine when just upgrading to a newer kernel. 
+Using SYSUPGRADE is fine when just upgrading to a newer kernel.
 
 First you'll need to install sysupgrade. The sysupgrade utility can befound in pkgsrc/sysutils/sysupgrade
 
@@ -288,7 +288,7 @@ ipv6addrctl_policy=ipv4_prefer
 Then just do:
 
 $ su
-# sysupgrade auto https://nyftp.netbsd.org/pub/NetBSD-daily/netbsd-9/latest/amd64 
+# sysupgrade auto https://nyftp.netbsd.org/pub/NetBSD-daily/netbsd-9/latest/amd64
 
 The url for our release will vary so be sre to check it first!
 
@@ -297,7 +297,7 @@ There will be a few options to choose from once avernthing is downloaded. Most a
 If you are upgrading from one release to the next, it's preferrable to use SYSINST instead. Why? Because upgrades across major binary releases using sysupgrade might not work properly due to the lack of a reboot between the kernel installation and the unpacking of the sets. You can always try, just be prepared to do a fresh install if it doesn't work.
 
 
-			     SYSINST 
+			     SYSINST
 
 Sysinst is rather easy, as long as you are able to flash the latest .img file to a usb.
 
