@@ -1,2 +1,2 @@
 # NetBSD
-dotfiles for my NetBSD system
+These are my personal dotfiles for my NetBSD system
