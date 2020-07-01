@@ -1,0 +1,43 @@
+# .shrc file for sh(1).
+
+#if [ -f /etc/shrc ]; then
+#	. /etc/shrc
+#fi
+
+ll(){ ls -l ${1+"$@"}; }
+
+export FFF_COL2=9
+
+case "$-" in *i*)
+	if /bin/test -z "${HOST}"; then
+		HOST="$(hostname)"
+	fi
+	PS1="$PS1"
+	#PS1="\${PWD##*/} \$ "
+	#PS1="${USER}@${HOST%%.*} $PS1"
+	set -o emacs
+	# ---------
+	# alias's
+	# ---------
+	alias c="clear"
+	alias ..="cd .."
+	alias ll="ls -l"
+	alias lsa="ls -al"
+	alias lsd="exa -l"
+	alias lsda="exa -al"
+	alias update="doas pkgin update"
+	alias upgrade="doas pkgin upgrade"
+	alias fullupgrade="doas pkgin full-upgrade"
+	alias autoremove="doas pkgin autoremove"
+	alias clean="doas pkgin clean"
+	alias cvsup="cd /usr/pkgsrc/ && doas cvs update -dP"
+	alias reboot="doas reboot"
+	alias bye="shutdown -p now"
+	alias reload="xrdb -merge ~/.Xresources"
+	alias view="sxiv"
+	alias preview="lsix"
+	alias listfonts="convert -list font"
+	alias cdfonts="cd /usr/pkg/share/fonts/X11 && pwd"
+	alias porn="cd ~/Pictures/screens && uname -sr | figlet -f smslant && ufetch && df -h && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
+	;;
+esac

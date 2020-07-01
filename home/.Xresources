@@ -1,0 +1,40 @@
+! .Xresources
+
+! General settings
+XTerm*termName: xterm-256color
+XTerm*decTerminalID: vt340
+XTerm*utf8: 1
+XTerm*locale: true
+XTerm*faceName: tewi-medium
+XTerm*faceSize: 10
+XTerm*cursorUnderLine: true
+XTerm*cursorBlink: false
+XTerm*loginShell: true
+XTerm*internalBorder: 7
+XTerm*SaveLines: 4500
+XTerm*selectToClipboard: true
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+
+! Colors
+*background: #1C1C1C
+*foreground: blanchedalmond
+
+*color0:     #252525
+*color1:     #C34646
+*color2:     #8C9440
+*color3:     #EAB244
+*color4:     #5F819D
+*color5:     #85678F
+*color6:     #5E8D87
+*color7:     #6D6D6D
+
+*color8:     #2F2F2F
+*color9:     #CC6666
+*color10:    #B5BD68
+*color11:    #E7BE6D
+*color12:    #81A2BE
+*color13:    #B294BB
+*color14:    #8ABEB7
+*color15:    #EFF0F1
