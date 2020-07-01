@@ -1,0 +1,345 @@
+
+	.______  .____________._._______ .________.______
+	:      \ : .____/\__ _:|: __   / |    ___/:_ _   \
+	|       || : _/\   |  :||  |>  \ |___    \|   |   |
+	|   |   ||   /  \  |   ||  |>   \|       /| . |   |
+	|___|   ||_.: __/  |   ||_______/|__:___/ |. ____/
+	    |___|   :/     |___|            :      :/
+	                                           :
+		Installation guide....  for noobs
+
+
+Most of this guide was taken from: https://www.unitedbsd.com/d/6-netbsd-a-little-guide-for-newcomers
+
+
+
+First make sure your HDD is completely wiped of partitions! Booting from a GParted live image is always a good idea!
+
+Download the latest dail build from https://nyftp.netbsd.org/pub/NetBSD-daily/netbsd-9/latest/images/
+and choose the relevant *amd64-install.img.gz
+
+Once you have wiped your drive and booted from your newly created NetBSD installation media
+Choose keyboard -> Install to hard disk -> Full installation -> Use the entire disk.
+
+NetBSD Partitions:
+
+Use entire disk and use default patrition sizes, maybe adjust the Swap (Swap only needs to be 4096mb).
+Edit the start point of the MBR partition to be 1024mb minimum for HDD wear leveling, and also give it a name "NetBSD"
+
+Complete the base installation then enable wifi before configureing the system.
+
+
+_____________________________________________________________
+
+                        ENABLE WIFI
+_____________________________________________________________
+
+
+Unless you have an ethernet connection, or if you just cant be fucked connecting via ethernet cable, before you can configure the system and install pkgin of pkgsrc you need to up your wifi!
+
+Ctrl+Z should get you to a shell console to enable wpa_supplicant. typing exit of ctrl+D to get back to sysinst.
+First you need to activate iwn0 with 'ifconfig iwn0 up'
+Then configure your rc.conf to enable wpa_supplicant:
+
+wpa_supplicant=YES
+wpa_supplicant_flags="-B -D bsd -i iwn0 -c /etc/wpa_supplicant.conf"
+dhcpcd=YES
+dhcpcd_flags="-qM iwn0 -b"
+
+Next we need to edit /etc/wpa_supplicant.conf to include out ssid and password for our network
+Once that's done, start wpa_supplicant with '/etc/rc.d/wpa_supplicant start'
+
+To enable wpa_supplicant to start at boot we need to add /usr to critical_filesystems_local variable:
+Add this new line at the beginning of rc.conf, just after rc_configured=YES:
+
+critical_filesystems_local="OPTIONAL:/var OPTIONAL:/usr"
+
+Now exit back to sysinst with Ctrl+D and choose auto configure iwn0 and make note of the DNS and IP address. After installing and rebooting the system, login as root.
+
+NOTE: to avoid DHCPv6 errors add 'noipv6rs' to /etc/dhcpcd.conf
+
+
+_____________________________________________________________
+
+                       SYSTEM SETUP
+_____________________________________________________________
+
+
+Choose a mirror and set it in '/usr/pkg/etc/pkgin/repositories.conf'
+I use Japan's Mirror:
+ftp://ftp7.jp.netbsd.org/pub/pkgsrc/packages/NetBSD/amd64/9.0_current/All
+
+pkgin update
+pkgin full-upgrade
+pkgin autoremove
+pkgin clean
+
+Then install essential sftware:
+$ doas pkgin install dbus fam tree doas vim ufetch scrot gtar xz git-base spectrwm slock mpv youtube-dl sxiv feh curl wget sxhkd w3m-img firefox-esr redshift ImageMagick password-store gnupg2 mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
+
+Optional:
+cantarell-fonts dejavu-ttf liberation-ttf ubuntu-fonts
+
+Thing's to be built from source:
+[pkgsrc] wmutils newsboat netsurf
+[github] lsix fff CascadiaCode tewi-font
+
+PASSMENU: https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu
+Just put this script in ~/.config/spectrwm/ and make it executable.
+
+FYI, fonts go into, /usr/pkg/share/fonts/X11 then, TTF if its a true-type font. Just copy them to the right dir.
+
+Next copy some start up files to /etc/rc.d
+
+# cp /usr/pkg/share/examples/rc.d/dbus /etc/rc.d/
+# cp /usr/pkg/share/examples/rc.d/famd /etc/rc.d/
+# cp /usr/pkg/share/examples/rc.d/intel-microcode /etc/rc.d/
+
+Add these to /etc/rc.conf with the following:
+
+rpcbind=YES
+dbus=YES
+famd=YES
+microcode=YES
+
+reboot.
+
+
+_____________________________________________________________
+
+                       SETUP PKGSRC
+_____________________________________________________________
+
+
+		     Preparing pkgsrc
+
+ftp ftp://ftp7.jp.netbsd.org/pub/pkgsrc/current/pkgsrc.tar.gz
+
+then...
+
+$ doas tar -xzf pkgsrc.tar.gz -C /usr
+$ cd /usr/pkgsrc && cvs update -dP
+
+If you get error messages from rsh, you need to set CVS_RSH variable:
+$ cd /usr/pkgsrc && env CVS_RSH=ssh cvs up -dP
+
+		     Creating WRKOBJDIR
+
+To keep the tree clean and your work directories out of it, create a directory, e.g.
+# mkdir /usr/work
+
+and define WRKOBJDIR in /etc/mk.conf:
+
+WRKOBJDIR=/usr/work
+
+		      Creating DISTDIR
+
+We also want our distfiles to be stored, outside of the pkgsrc directory. Therefore we add the DISTDIR variable to /etc/mk.conf
+
+DISTDIR=/usr/distfiles
+
+and create it with:
+# mkdir /usr/distfiles
+
+		     Installing packages
+
+To install packages, we need to become root.
+$ su
+
+then we change to the directory (category) and then to the package we want to install.
+# cd /usr/pkgsrc/misc/figlet
+
+to install we enter
+# make install
+
+afterwards we clean up and enter
+# make clean
+
+if this was a package with dependencies, we also enter
+# make clean-depends
+
+You can put them all in one line too.
+# make install clean clean-depends
+
+If you wish to clean the distfiles, the files that have been downloaded, you enter
+# make distclean
+
+List Packages:
+$ pkg_info
+
+Removing Packages:
+# pkg_delete packagename
+
+Updating Packages: You can update a single package using make update.
+# make update
+
+                            WIP
+
+$ cd /usr/pkgsrc/
+$ git clone git://wip.pkgsrc.org/pkgsrc-wip.git wip
+
+To try packages
+$ cd /usr/pkgsrc/wip/<package directory>
+$ doas make install
+
+_____________________________________________________________
+
+                       CREATE A USER
+_____________________________________________________________
+
+
+Once again, login as root and add an user
+
+# useradd -g users -G wheel,operator,users -s /bin/ksh -c "your real name" -m user_name
+# passwd user_name
+
+Make sure your user_name has been added to wheel (check /etc/group). If not, add it now. It's a good idea to add your user to 'operator' and 'users' groups too.
+
+Create the /usr/pkg/etc/doas.conf file according to your needs.
+Example:
+
+#doas.conf
+permit :wheel
+permit nopass user_name cmd reboot
+permit nopass user_name cmd shutdown
+permit nopass user_name cmd /etc/rc.d/wpa_supplicant
+permit nopass user_name cmd ifconfig
+
+Reboot, login as the new user and configure your stuff, things like .xinitrc, .shrc, .Xresources, ...
+!!!!DONT CREATE THESE FILES AS ROOT!!!!
+
+Cheat and download Pin's configs :P
+git clone git://github.com/voidpin/spectrwm-netbsd.git
+
+If you fuck up with useradd check out usermod: A good walk through on usermod options here:
+https://www.tecmint.com/usermod-command-examples/
+
+
+____________________________________________________________
+
+                    Example .xinitrc
+____________________________________________________________
+
+
+#!/bin/sh
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+xrdb -merge ~/.Xresources && setxkbmap us
+
+xset b off && feh --bg-fill "/home/${USER}/Wallpapers/wall.jpg"
+
+exec spectrwm
+
+
+_____________________________________________________________
+
+                       SET UP YOUR WM
+_____________________________________________________________
+
+
+Copy /usr/pkg/share/examples/spectrwm/spectrwm.conf to your home directory ~/.spectrwm.conf
+Don't forget to copy also the spectrwm_lang.conf for your keyboard and probably rename it ~/.keybindings.conf
+
+Use configs from this maddog: https://github.com/voidpin/spectrwm-netbsd
+
+Next time you login, you can issue startx to launch the graphical environment on your install.
+
+If you get xauth errors when starting WM with startx then fix /etc/hosts:
+
+ ::1                     localhost hackbox.local hackbox
+ 127.0.0.1               localhost hackbox.local hackbox
+
+NOTE: "hackbox" is the name of my computer, should be the same as stated in /etc/rc.conf.
+"local" is the name I gave my DNS while installing.
+Set hostname in /etc/rc.conf with 'hostname=somehostname'
+
+
+_____________________________________________________________
+
+                       UPGRADING NETBSD
+_____________________________________________________________
+
+Be sure to refer to Pin's guide here: https://www.unitedbsd.com/d/110-upgrading-netbsd-using-sysinst
+
+
+			   SYSUPGRADE
+
+Using SYSUPGRADE is fine when just upgrading to a newer kernel.
+
+First you'll need to install sysupgrade. The sysupgrade utility can befound in pkgsrc/sysutils/sysupgrade
+
+Then add ARCHIVE_EXTENSION=tar.xz to your /usr/pkg/etc/sysupgrade.conf
+
+And in /etc/rc.conf :
+
+ipv6addrctl=YES
+ipv6addrctl_policy=ipv4_prefer
+
+Then just do:
+
+$ su
+# sysupgrade auto https://nyftp.netbsd.org/pub/NetBSD-daily/netbsd-9/latest/amd64
+
+The url for our release will vary so be sre to check it first!
+
+There will be a few options to choose from once avernthing is downloaded. Most are ok to leave as default, but DONT MERGE /etc/passwd
+
+If you are upgrading from one release to the next, it's preferrable to use SYSINST instead. Why? Because upgrades across major binary releases using sysupgrade might not work properly due to the lack of a reboot between the kernel installation and the unpacking of the sets. You can always try, just be prepared to do a fresh install if it doesn't work.
+
+
+			     SYSINST
+
+Sysinst is rather easy, as long as you are able to flash the latest .img file to a usb.
+
+Once you have flashed your usb and booted the latest install media and picked your keyboard layout, choose option:
+
+>b: Upgrade NetBSD on a hard disk
+Answer Yes to the next question and choose the target disk.
+
+Proceed with choosing bootblocks
+>a: Use BIOS console
+
+followed by choosing the distribution filesets
+>a: Full installation
+
+Pick the source
+>a: CD-ROM/DVD/install image media
+
+...and let sysinst do its job 🙂 When prompted Hit enter to continue
+
+Back at the start installation screen choose
+>x: Exit Install System
+
+At the bottom of your screen type
+#shutdown -p now
+_____________________________________________________________
+
+                       Mounting Drives
+_____________________________________________________________
+
+
+https://archive.unitedbsd.com/t/netbsd-desktop-pt-5-automounting-with-berkeley-am-utils/294
+
+
+_____________________________________________________________
+
+                     Setting up a Firewall
+_____________________________________________________________
+
+
+https://archive.unitedbsd.com/t/netbsd-desktop-pt-3-simple-stateful-firewall-with-npf/286
+
+
+~This guide is a WIP~
+
+Enjoy NetBSD!
