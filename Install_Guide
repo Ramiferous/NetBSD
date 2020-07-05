@@ -75,14 +75,9 @@ pkgin autoremove
 pkgin clean
 
 Then install essential sftware:
-$ doas pkgin install dbus fam tree doas vim ufetch scrot gtar xz git-base spectrwm slock mpv youtube-dl sxiv feh curl wget sxhkd w3m-img firefox-esr redshift ImageMagick password-store gnupg2 mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
+$ doas pkgin install dbus fam tree doas vim scrot gtar xz git-base spectrwm slock mpv youtube-dl sxiv feh curl wget w3m-img firefox-esr redshift ImageMagick password-store gnupg2 mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
 
-Optional:
-cantarell-fonts dejavu-ttf liberation-ttf ubuntu-fonts
-
-Thing's to be built from source:
-[pkgsrc] wmutils newsboat netsurf
-[github] lsix fff CascadiaCode tewi-font
+/ Grab these from github: lsix fff CascadiaCode tewi-font /
 
 PASSMENU: https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu
 Just put this script in ~/.config/spectrwm/ and make it executable.
