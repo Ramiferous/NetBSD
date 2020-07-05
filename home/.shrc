@@ -37,7 +37,9 @@ case "$-" in *i*)
 	alias view="sxiv"
 	alias preview="lsix"
 	alias listfonts="convert -list font"
-	alias cdfonts="cd /usr/pkg/share/fonts/X11 && pwd"
+	alias mnt="mount -t msdos /dev/sd0e /mnt && cd /mnt"
+	alias umnt="cd && umount -t msdos /mnt"
+	alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
 	alias porn="cd ~/Pictures/screens && uname -sr | figlet -f smslant && ufetch && df -h && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
 	;;
 esac

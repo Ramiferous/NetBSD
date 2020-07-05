@@ -5,7 +5,7 @@
 ## Echo battery status at regular intevals
 while :; do
     # Battery Percentage
-    BAT_PERC="$(envstat -s acpibat0 | awk 'FNR==7 {print $6}' | tr -d '()')"
+    BAT_PERC="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
 
     # Battery Charging State
     BAT_STATE="$(envstat -d acpibat0 | awk 'FNR==10 {print $2}')"
@@ -25,7 +25,7 @@ fi
     #SPOT_INFO=$(python /home/isaac/.scripts/polybar-spotify/spotify_status.py -f '{artist}: {song}' -t 50)
 
     # Print Variables
-    echo "$BAT_STATE $BAT_PERC |"
+    echo "$Bat $BAT_PERC |"
     sleep 30
 done
 
