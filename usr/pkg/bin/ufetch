@@ -71,9 +71,9 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${yellow}"       # labels
+lc="${reset}${red}"       # labels
 nc="${reset}${bold}${yellow}"       # user and hostname
-ic="${reset}${white}"               # info
+ic="${reset}" 		            # info
 c0="${reset}${white}"               # first color
 c1="${reset}${yellow}"              # second color
 
@@ -81,10 +81,10 @@ c1="${reset}${yellow}"              # second color
 
 cat <<EOF
 
-${c0}  \\\\${c1}\`-______,----__    ${c1}${USER}${ic}@${c1}${host}${reset}
-${c0}   \\\        ${c1}__,---\`_  ${c1}OS:        ${ic}${os}${reset}
-${c0}    \\\       ${c1}\`.____    ${c1}KERNEL:    ${ic}${kernel}${reset}
-${c0}     \\\\${c1}-______,----\`-  ${c1}UPTIME:    ${ic}${uptime}${reset}
+${c0}  \\\\${lc}\`-______,----__    ${c1}${USER}${ic}@${c1}${host}${reset}
+${c0}   \\\        ${lc}__,---\`_  ${c1}OS:        ${ic}${os}${reset}
+${c0}    \\\       ${lc}\`.____    ${c1}KERNEL:    ${ic}${kernel}${reset}
+${c0}     \\\\${lc}-______,----\`-  ${c1}UPTIME:    ${ic}${uptime}${reset}
 ${c0}      \\\               ${c1}PACKAGES:  ${ic}${packages}${reset}
 ${c0}       \\\              ${c1}SHELL:     ${ic}${shell}${reset}
 ${c0}        \\\             ${c1}${uitype}:        ${ic}${ui}${reset}
