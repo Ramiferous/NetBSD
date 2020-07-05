@@ -1,14 +1,21 @@
-#!/usr/bin/env bash
-# set -euo pipefail
-
+#!/bin/sh
+#
+# ~/.config/spectrwm/.baraction.sh
 
 ## Echo battery status at regular intevals
 while :; do
     # Battery Percentage
-    BAT_PERC="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
+    BAT_PERC="$(envstat -s acpibat0 | awk 'FNR==7 {print $6}' | tr -d '()')"
 
     # Battery Charging State
-    BAT_STATE=$(cat /sys/class/power_supply/BAT1/status)
+    BAT_STATE="$(envstat -d acpibat0 | awk 'FNR==10 {print $2}')"
+
+# State detection
+if [ "${BAT_STATE}" = "TRUE" ]; then
+	Bat='charging'
+else
+	Bat='discharging'
+fi
 
     # Master Volume
     # VOL=$(amixer scontents | awk 'NR==5 {print $4}')
