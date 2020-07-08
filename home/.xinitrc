@@ -21,7 +21,7 @@ xset b off #&&
 #xsetroot -solid darkgrey 
 #xsetroot -mod 8 8 -bg midnightblue 
 #xpmroot ~/Pictures/walls/tiles/zwEQ.xpm
-feh --bg-fill "/home/${USER}/Pictures/walls/animegirls.png"
+feh --bg-fill "/home/${USER}/Pictures/walls/redsky.jpeg"
 
 sleep 2 && redshift -c ~/.config/redshift/redshift.conf &
 
