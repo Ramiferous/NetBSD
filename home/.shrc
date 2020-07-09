@@ -12,6 +12,7 @@ case "$-" in *i*)
 	if /bin/test -z "${HOST}"; then
 		HOST="$(hostname)"
 	fi
+	#PS1="% "
 	PS1="$PS1"
 	#PS1="\${PWD##*/} \$ "
 	#PS1="${USER}@${HOST%%.*} $PS1"
@@ -22,9 +23,11 @@ case "$-" in *i*)
 	alias c="clear"
 	alias ..="cd .."
 	alias ll="ls -l"
-	alias lsa="ls -al"
+	alias lsa="ls -alh"
 	alias lsd="exa -l"
 	alias lsda="exa -al"
+	alias install="doas pkgin install"
+	alias remove="doas pkgin remove"
 	alias update="doas pkgin update"
 	alias upgrade="doas pkgin upgrade"
 	alias fullupgrade="doas pkgin full-upgrade"
@@ -40,6 +43,7 @@ case "$-" in *i*)
 	alias mnt="doas mount -t msdos /dev/sd0e /mnt && cd /mnt"
 	alias umnt="cd && doas umount -t msdos /mnt"
 	alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
+	alias fetch="ufetch"
 	alias porn="cd ~/Pictures/screens && uname -sr | figlet -f smslant && ufetch && df -h && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
 	;;
 esac
