@@ -12,6 +12,7 @@ case "$-" in *i*)
 	#PS1="\${PWD##*/} \$ "
 	#PS1="${USER}@${HOST%%.*} $PS1"
 	set -o emacs
+
 	# alias's
 	alias c="clear"
 	alias ..="cd .."
