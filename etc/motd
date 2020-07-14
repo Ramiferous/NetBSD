@@ -1,21 +1,33 @@
-NetBSD 9.0_STABLE (GENERIC) #0: Thu Jun 11 11:04:11 UTC 2020
-                                     ______ _
-                         _ __        \                      _ __
-                  ________  / _____   \  _________       ______/_
-       _____     /       / / /    /___ \ \        \     /     / / _____
-    __|     \  _/    ___/   /        /  \ \____    \   /     __/ /     |__
-   /         \       \     /      __/  _ _    /    /___\     \__/         \
-  /          /       /___ /      /___ /      /    /     \       \     .    \
- /     :     \     _/    /     _/    /     __\    \      \      /     |     \
-/      |      \          \           \    |        \    _/     /     __\     \
-\      |       \  __      \____       \___|        /           \    |         \
- \___ _|       / __/______/ __/_______/ __|_______/______  Cl!  \___|         /
-  \__  | _____/    \_____/    \______/    | _____/ \____/_______/_  | _ _____/
-     |_|_____/                            |             \______/  |_|______/
-       |                                  |                         |
-       `-- - NetBSD/amd64 9.0_STABLE - ---'                         `--- --
+NetBSD 9.0_STABLE (GENERIC) #0: Tue Jul 7 20:04:37 UTC 2020
+
+                                              __,gnnnOCCCCCOObaau,_
+                _._                    __,gnnCCCCCCCCOPF"''        ~
+               (N\XCbngg,._____.,gnnndCCCCCCCCCCCCF"___,,,,___
+                \N\XCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCOOOOPYvv.
+                 \N\XCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCPF"''
+                  \N\XCCCCCCCCCCCCCCCCCCCCCCCCCOF"'
+                   \N\XCCCCCCCCCCCCCCCCCCCCOF"'
+                    \N\XCCCCCCCCCCCCCCCPF"'
+                     \N\"PCOCCCOCCFP""
+                      \N\
+                       \N\                                               ---
+  qnnnn.     qnnnnr     \N\       qgggaagge,     ,spsqs,  qgggaaagga,.  | R |
+    NNNNL     "NN                  BBB   "BBb   ;SS   "Ss  DDD    "VDDm  ---
+    NNVNNb,    NN           ,t     BBB    IBP   SSk,    "  DDD      "DDb
+    NN "VNNp,  NN  .epqe, zttttz   BBBgggdBP'   "SSSSp,    DDD       YDD
+    NN   "VNNp,NN eEY__YA   TT     BBB""""GBm,    "SSSSR   DDD       ADD
+    NN     "VNbNN EEF""""'  TT     BBB     BBB       "YSL  DDD      .DDP
+    NN       "YNN VEL    ,  TT     BBB    _BBP s,     ISF  DDD     ,DDD'
+  adNNbe      "NN "VEggdF   ttgt  dBBBaaadBBF'  YSgggdSP' dDDDaaadCDF"
+                                                       
+                                \NN\
+                                 \NN\
+                                  \NNA.
+                                   \NNA,
+                                    \NNN,
+                                     \NNN\
+                                      \NNN\
+                                       \NNNA
 
 			   Welcome to NetBSD!
 	    A free, fast, secure and highly portable UNIX OS
-
-
