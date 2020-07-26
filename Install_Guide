@@ -75,7 +75,7 @@ pkgin autoremove
 pkgin clean
 
 Then install essential sftware:
-$ doas pkgin install dbus fam tree doas vim scrot gtar xz git-base spectrwm slock mpv youtube-dl sxiv feh curl wget w3m-img firefox-esr redshift ImageMagick password-store gnupg2 mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
+$ doas pkgin install dbus fam tree doas vim scrot gtar xz git-base spectrwm slock mpv youtube-dl ircII sox rtorrent xiv feh curl wget w3m-img firefox-esr redshift ImageMagick password-store gnupg2 mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
 
 / Grab these from github: lsix fff CascadiaCode tewi-font /
 
