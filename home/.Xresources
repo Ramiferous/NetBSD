@@ -5,13 +5,18 @@ XTerm*termName: xterm-256color
 XTerm*decTerminalID: vt340
 XTerm*utf8: 1
 XTerm*locale: true
+XTerm*loginShell: true
 XTerm*faceName: tewi-medium
 XTerm*faceSize: 10
 XTerm*cursorUnderLine: true
 XTerm*cursorBlink: false
-XTerm*loginShell: true
 XTerm*internalBorder: 7
 XTerm*SaveLines: 4500
+XTerm*cutNewLine: false
+XTerm*cutToBeginningOfLine: false
+! XTerm*charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+XTerm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 XTerm*selectToClipboard: true
 XTerm*vt100.translations: #override \
     Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
