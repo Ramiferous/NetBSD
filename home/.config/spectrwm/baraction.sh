@@ -8,7 +8,7 @@ while :; do
     BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')"
     
 # Battery Charging State
-    BAT_STATE="$(envstat -d acpibat0 | awk 'FNR==10 {print $2}')"
+    BAT_STATE="$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')"
 
 # State detection
 if [ "${BAT_STATE}" = "TRUE" ]; then
@@ -16,6 +16,9 @@ if [ "${BAT_STATE}" = "TRUE" ]; then
 else
 	STATE='Discharging'
 fi
+
+# Network
+    NETSTAT="$(netstat -I iwn0 -b -h | awk 'FNR == 2 {print $5,$6}')"
 
 # Master Volume
     VOL="$(mixerctl outputs.master | sed -e 's|.*,||g')" # | expr \( $VOL \* 100 \) / 254)"
@@ -30,7 +33,7 @@ fi
     PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 
 # Print Variables
-    echo "$STATE $BAT_PERC% | Vol$LEVEL% | $PKGS | $WEATHER" 
+    echo "$STATE $BAT_PERC% | Vol$LEVEL% | $NETSTAT | $PKGS | $WEATHER" 
     #echo "$WEATHER | $PKGS | $STATE $BAT_PERC% | Vol$LEVEL%"
     sleep 1
 done
