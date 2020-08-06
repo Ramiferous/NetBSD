@@ -4,8 +4,6 @@
 
 ## Echo battery status at regular intevals
 while :; do
-# Battery Percentage (two decimal places)
-    #BAT_PERC="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
 # Uncomment the following line to remove the decimal place
     BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')"
     
@@ -24,8 +22,16 @@ fi
     LEVEL="$name $(expr \( $VOL \* 100 \) / 254)"
     # MUTE_STATE=$(amixer scontents | awk 'NR==5 {print $6}')
 
+# Weather
+    #set -g status-interval 60 
+    WEATHER="$(curl -s wttr.in/Melbourne?format='%C+%t\n')"
+
+# Packages
+    PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
+
 # Print Variables
-    echo "$STATE $BAT_PERC% | Vol$LEVEL% |"
+    echo "$STATE $BAT_PERC% | Vol$LEVEL% | $PKGS | $WEATHER" 
+    #echo "$WEATHER | $PKGS | $STATE $BAT_PERC% | Vol$LEVEL%"
     sleep 1
 done
 

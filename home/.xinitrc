@@ -17,14 +17,10 @@ export XDG_RUNTIME_DIR=/tmp/${USER}-runtime
 
 xrdb -merge ~/.Xresources && setxkbmap us
 
-xset b off #&&
-#xsetroot -solid darkgrey 
-#xsetroot -mod 8 8 -bg midnightblue 
-#xpmroot ~/Pictures/walls/tiles/zwEQ.xpm
-feh --bg-fill "/home/${USER}/Pictures/walls/redsky.jpeg"
+xset b off && feh --bg-fill "/home/${USER}/Pictures/walls/colourful.jpg"
 
 sleep 2 && redshift -c ~/.config/redshift/redshift.conf &
 
-#sleep 1 && xearth -pos moon -rot galactic -mag 0.9 -nomarkers -starfreq 0.001 -gamma 0.9 &
+sleep 1 && picom &
 
 exec spectrwm
