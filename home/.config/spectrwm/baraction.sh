@@ -27,7 +27,7 @@ fi
 
 # Weather
     #set -g status-interval 60 
-    WEATHER="$(curl -s wttr.in/Melbourne?format='%C+%t\n')"
+    WEATHER="$(curl -s wttr.in/-37.731678,144.995142?format='%C+%t\n')"
 
 # Packages
     PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
