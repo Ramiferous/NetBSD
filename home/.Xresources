@@ -1,13 +1,22 @@
 ! .Xresources
 
+! Font settings
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.dpi: 96
+Xft.rgba: rgb
+
 ! General settings
 XTerm*termName: xterm-256color
 XTerm*decTerminalID: vt340
 XTerm*utf8: 1
 XTerm*locale: true
 XTerm*loginShell: true
-XTerm*faceName: tewi-medium
-XTerm*faceSize: 10
+XTerm*faceName: xft:Pragmata:pixelsize=10
+!XTerm*faceSize: 9
 XTerm*cursorUnderLine: true
 XTerm*cursorBlink: false
 XTerm*internalBorder: 7
@@ -26,20 +35,214 @@ XTerm*vt100.translations: #override \
 *background: #1C1C1C
 *foreground: blanchedalmond
 
-*color0:     #252525
-*color1:     #C34646
-*color2:     #8C9440
-*color3:     #EAB244
-*color4:     #5F819D
-*color5:     #85678F
-*color6:     #5E8D87
-*color7:     #6D6D6D
+!*color0:     #252525
+!*color1:     #C34646
+!*color2:     #8C9440
+!*color3:     #EAB244
+!*color4:     #5F819D
+!*color5:     #85678F
+!*color6:     #5E8D87
+!*color7:     #6D6D6D
 
-*color8:     #2F2F2F
-*color9:     #CC6666
-*color10:    #B5BD68
-*color11:    #E7BE6D
-*color12:    #81A2BE
-*color13:    #B294BB
-*color14:    #8ABEB7
-*color15:    #EFF0F1
+!*color8:     #2F2F2F
+!*color9:     #CC6666
+!*color10:    #B5BD68
+!*color11:    #E7BE6D
+!*color12:    #81A2BE
+!*color13:    #B294BB
+!*color14:    #8ABEB7
+!*color15:    #EFF0F1
+
+!
+! My Old Colours [LIGHT]
+!
+!*foreground: #dddddd
+!*background: #151515
+
+!black
+!*color0:     #393939
+!*color8:     #474747
+
+!red
+!*color1:     #FF9F95
+!*color9:     #FF8D80
+
+!green
+!*color2:     #E2FFC7
+!*color10:    #DBFFB3
+
+!yellow
+!*color3:     #FFFFB9
+!*color11:    #FFBE64
+
+!blue
+!*color4:     #A8CEEA
+!*color12:    #7EB6FF
+
+!magenta
+!*color5:     #E2B5CC
+!*color13:    #E296FF
+
+!cyan
+!*color6:     #C2EFFF
+!*color14:    #9CE9FF
+
+!white
+!*color7:     #dddddd
+!*color15:    #dddddd
+
+!
+! My Old Colours [DARK]
+!
+!! Darker COLORSET
+
+!*foreground: #dddddd
+!*background: #151515
+ 
+!black
+!*color0: #393939
+!*color8: #474747
+ 
+!red
+!*color1: #da4939
+!*color9: #ff6c5c
+ 
+!green
+!*color2: #519f50
+!*color10: #a5c261
+ 
+!yellow
+!*color3: #cc7833
+!*color11: #bc9458
+ 
+!blue
+!*color4: #6d9cbe
+!*color12: #d0d0ff
+ 
+!magenta
+!*color5: #9f5079
+!*color13: #a761c2
+ 
+!cyan
+!*color6: #435d75
+!*color14: #6e98a4
+ 
+!white
+!*color7: #dddddd
+!*color15: #dddddd
+
+!
+! DotShare by Crshd
+!
+! vim: set filetype=xdefaults :
+!*foreground: #D7D0C7
+!*background: #151515
+
+!black
+! *color0:     #AF875F
+! *color8:     #AF875F
+*color0:     #101010
+*color8:     #404040
+!red
+*color1:     #E84F4F
+*color9:     #D23D3D
+!green
+*color2:     #B8D68C
+*color10:    #A0CF5D
+!yellow
+*color3:     #E1AA5D
+*color11:    #F39D21
+!blue
+*color4:     #7DC1CF
+*color12:    #4E9FB1
+!magenta
+*color5:     #9B64FB
+*color13:    #8542FF
+!cyan
+*color6:     #6D878D
+*color14:    #42717B
+!white
+*color7:     #dddddd
+*color15:    #dddddd
+
+!
+! Get Fresh by Crshd
+!
+!*foreground: #DDCCBB
+
+! Brown BG
+!*background: #30251D
+
+! Grey BG
+!*background: #151515
+
+
+!black
+!*color0:     #393939
+!*color8:     #AF875F
+!red
+!*color1:     #BF1E2D
+!*color9:     #E7212A
+!green
+!*color2:     #9DBA3A
+!*color10:    #A9C938
+!yellow
+!*color3:     #F5B915
+!*color11:    #F7D325
+!blue
+!*color4:     #1CA1DB
+!*color12:    #00AFDA
+!magenta
+!*color5:     #652F90
+!*color13:    #894E9F
+!cyan
+!*color6:     #EA7D24
+!*color14:    #F79321
+!white
+!*color7:     #E7E8E9
+!*color15:    #F3F3F4
+
+
+!
+! invisibone by baskerville
+!
+! vim: set ft=xdefaults:
+
+!*background: #232323
+!*foreground: #A0A0A0
+
+!URxvt.colorBD:    #CFCFCF
+!URxvt.colorUL:    #A0A0A0
+!URxvt.colorIT:    #686868
+
+!BLK
+!*color0:     #303030
+!*color8:     #686868
+
+!RED
+!*color9:     #FFA7DA
+!*color1:     #D370A3
+
+!GRN
+!*color10:    #A3D572
+!*color2:     #6D9E3F
+
+!BLU
+!*color12:    #98CBFE
+!*color4:     #6095C5
+
+!YEL
+!*color11:    #EFBD8B
+!*color3:     #B58858
+
+!CYN
+!*color14:    #75DAA9
+!*color6:     #3BA275
+
+!MAG
+!*color13:    #E5B0FF
+!*color5:     #AC7BDE
+
+!WHT
+!*color7:     #CFCFCF
+!*color15:    #FFFFFF

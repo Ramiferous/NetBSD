@@ -1,0 +1,73 @@
+#!/bin/sh
+
+## INFO
+
+# user is already defined
+host="$(hostname)"
+os="$(uname -sm)"
+kernel="$(uname -v | awk '{print $2,$6,$7,$10}')"
+machine="$(sysctl -n machdep.dmi.system-product)"
+uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+packages="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
+shell="$(basename "$SHELL")"
+
+## UI DETECTION
+
+if [ -n "${DE}" ]; then
+	ui="${DE}"
+	uitype='DE'
+elif [ -n "${WM}" ]; then
+	ui="${WM}"
+	uitype='WM'
+elif [ -n "${XDG_CURRENT_DESKTOP}" ]; then
+	ui="${XDG_CURRENT_DESKTOP}"
+	uitype='DE'
+elif [ -n "${DESKTOP_SESSION}" ]; then
+	ui="${DESKTOP_SESSION}"
+	uitype='DE'
+elif [ -f "${HOME}/.xinitrc" ]; then
+	ui="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
+	uitype='WM'
+elif [ -f "${HOME}/.xsession" ]; then
+	ui="$(tail -n 1 "${HOME}/.xsession" | cut -d ' ' -f 2)"
+	uitype='WM'
+else
+	ui='unknown'
+	uitype='UI'
+fi
+
+battery="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
+
+## DEFINE COLORS
+
+# probably don't change these
+if [ -x "$(command -v tput)" ]; then
+	bold="$(tput bold)"
+	black="$(tput setaf 0)"
+	red="$(tput setaf 1)"
+	green="$(tput setaf 2)"
+	yellow="$(tput setaf 3)"
+	blue="$(tput setaf 4)"
+	magenta="$(tput setaf 5)"
+	cyan="$(tput setaf 6)"
+	white="$(tput setaf 7)"
+	reset="$(tput sgr0)"
+fi
+
+# you can change these
+lc="${reset}${red}"       # labels
+nc="${reset}${bold}${yellow}"       # user and hostname
+ic="${reset}" 		            # info
+c0="${reset}${white}"               # first color
+c1="${reset}${yellow}"              # second color
+
+## OUTPUT
+
+cat <<EOF
+        ${c1}OS ${ic}${os}${reset}
+    ${c1}KERNEL ${ic}${kernel}${reset}
+    ${c1}UPTIME ${ic}${uptime}${reset}
+  ${c1}PACKAGES ${ic}${packages}${reset}
+     ${c1}SHELL ${ic}${shell}${reset}
+        ${c1}${uitype} ${ic}${ui}${reset}
+EOF
