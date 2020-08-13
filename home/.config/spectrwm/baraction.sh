@@ -33,8 +33,8 @@ fi
     PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 
 # Print Variables
-    echo "$STATE $BAT_PERC% | Vol$LEVEL% | $NETSTAT | $PKGS | $WEATHER" 
-    #echo "$WEATHER | $PKGS | $STATE $BAT_PERC% | Vol$LEVEL%"
+    #echo "$STATE $BAT_PERC% | Vol$LEVEL% | $NETSTAT | $PKGS | $WEATHER" 
+    echo "$WEATHER | $PKGS | $STATE $BAT_PERC% | Vol$LEVEL%"
     sleep 1
 done
 

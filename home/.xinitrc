@@ -17,7 +17,9 @@ export XDG_RUNTIME_DIR=/tmp/${USER}-runtime
 
 xrdb -merge ~/.Xresources && setxkbmap us
 
-xset b off && feh --bg-fill "/home/${USER}/Pictures/walls/colourful.jpg"
+xset b off && feh --bg-fill "/home/${USER}/Pictures/walls/lake.jpg"
+
+#xsetroot -bg \#606060 -mod 2 2
 
 sleep 2 && redshift -c ~/.config/redshift/redshift.conf &
 
