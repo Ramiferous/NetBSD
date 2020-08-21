@@ -81,13 +81,14 @@ c1="${reset}${yellow}"              # second color
 
 cat <<EOF
 
-${c0}  \\\\${lc}\`-______,----__    ${c1}${USER}${ic}@${c1}${host}${reset}
-${c0}   \\\        ${lc}__,---\`_  ${c1}OS:        ${ic}${os}${reset}
-${c0}    \\\       ${lc}\`.____    ${c1}KERNEL:    ${ic}${kernel}${reset}
-${c0}     \\\\${lc}-______,----\`-  ${c1}UPTIME:    ${ic}${uptime}${reset}
-${c0}      \\\               ${c1}PACKAGES:  ${ic}${packages}${reset}
-${c0}       \\\              ${c1}SHELL:     ${ic}${shell}${reset}
-${c0}        \\\             ${c1}${uitype}:        ${ic}${ui}${reset}
-${c0}         \\\            ${c1}BATTERY:   ${ic}${battery}${reset}
+${c0}  \\\\${lc}\`-______,----__          ${c1}${USER}${ic} ${c1}${host}${reset}
+${c0}   \\\        ${lc}__,---\`_          ${c1}OS ${ic}${os}${reset}
+${c0}    \\\       ${lc}\`.____        ${c1}KERNEL ${ic}${kernel}${reset}
+${c0}     \\\\${lc}-______,----\`-     ${c1}MACHINE ${ic}ThinkPad x230${reset}
+${c0}      \\\                   ${c1}UPTIME ${ic}${uptime}${reset} 
+${c0}       \\\                ${c1}PACKAGES ${ic}${packages}${reset}
+${c0}        \\\                  ${c1}SHELL ${ic}${shell}${reset}
+${c0}         \\\                    ${c1}${uitype} ${ic}${ui}${reset}
+${c0}          \\\              ${c1}BATTERY ${ic}${battery}${reset}
 
 EOF
