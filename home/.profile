@@ -23,3 +23,8 @@ export FFF_W3M_YOFFSET=0
 
 # Hairloom-mailx
 export NAILRC=$HOME/.nailrc
+
+# UTF-8 Locale setting
+export LANG=en_AU.UTF-8
+export LC_CTYPE="$LANG"
+export LC_ALL=""
