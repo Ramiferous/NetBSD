@@ -22,7 +22,7 @@
 host="$(hostname)"
 os="$(uname -sm)"
 kernel="$(uname -v | awk '{print $2,$6,$7,$10}')"
-machine="$(sysctl -n machdep.dmi.system-product)"
+machine="$(sysctl -n machdep.dmi.system-version)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 packages="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 shell="$(basename "$SHELL")"
@@ -84,7 +84,7 @@ cat <<EOF
 ${c0}  \\\\${lc}\`-______,----__          ${c1}${USER}${ic} ${c1}${host}${reset}
 ${c0}   \\\        ${lc}__,---\`_          ${c1}OS ${ic}${os}${reset}
 ${c0}    \\\       ${lc}\`.____        ${c1}KERNEL ${ic}${kernel}${reset}
-${c0}     \\\\${lc}-______,----\`-     ${c1}MACHINE ${ic}ThinkPad x230${reset}
+${c0}     \\\\${lc}-______,----\`-     ${c1}MACHINE ${ic}${machine}${reset}
 ${c0}      \\\                   ${c1}UPTIME ${ic}${uptime}${reset} 
 ${c0}       \\\                ${c1}PACKAGES ${ic}${packages}${reset}
 ${c0}        \\\                  ${c1}SHELL ${ic}${shell}${reset}

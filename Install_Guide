@@ -172,10 +172,11 @@ Updating Packages: You can update a single package using make update.
 
 $ cd /usr/pkgsrc/
 $ git clone git://wip.pkgsrc.org/pkgsrc-wip.git wip
+$ doas chown -R user /usr/pkgsrc/wip/
 
 To try packages
 $ cd /usr/pkgsrc/wip/<package directory>
-$ doas make install
+$ make install
 
 _____________________________________________________________
 
