@@ -75,14 +75,8 @@ pkgin autoremove
 pkgin clean
 
 Then install essential sftware:
-$ doas pkgin install dbus fam tree doas vim scrot gtar xz git-base spectrwm slock mpv youtube-dl ircII sox rtorrent xiv feh curl wget w3m-img firefox-esr redshift ImageMagick password-store gnupg2 mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
+$ doas pkgin install dbus fam tree doas vim scrot gtar xz git-base spectrwm slock mpv youtube-dl rtorrent sxiv feh curl wget ncspot phetch w3m-img xdo xdotool firefox-esr redshift password-store gnupg2 mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
 
-/ Grab these from github: lsix fff CascadiaCode tewi-font /
-
-PASSMENU: https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu
-Just put this script in ~/.config/spectrwm/ and make it executable.
-
-FYI, fonts go into, /usr/pkg/share/fonts/X11 then, TTF if its a true-type font. Just copy them to the right dir.
 
 Next copy some start up files to /etc/rc.d
 
@@ -112,8 +106,9 @@ ftp ftp://ftp7.jp.netbsd.org/pub/pkgsrc/current/pkgsrc.tar.gz
 
 then...
 
-$ doas tar -xzf pkgsrc.tar.gz -C /usr
-$ cd /usr/pkgsrc && cvs update -dP
+$ doas tar -xzf pkgsrc.tar.gz -C /home/$USER/
+$ doas chown 'user' -R pkgsrc      ## This is not recomended but wth.
+$ cd ~/pkgsrc && cvs update -dP
 
 If you get error messages from rsh, you need to set CVS_RSH variable:
 $ cd /usr/pkgsrc && env CVS_RSH=ssh cvs up -dP
@@ -122,6 +117,7 @@ $ cd /usr/pkgsrc && env CVS_RSH=ssh cvs up -dP
 
 To keep the tree clean and your work directories out of it, create a directory, e.g.
 # mkdir /usr/work
+# chown 'user' /usr/work
 
 and define WRKOBJDIR in /etc/mk.conf:
 
@@ -135,47 +131,48 @@ DISTDIR=/usr/distfiles
 
 and create it with:
 # mkdir /usr/distfiles
+# chown 'user' /usr/distfiles
 
 		     Installing packages
 
-To install packages, we need to become root.
-$ su
+Change to the directory (category) and then to the package we want to install.
+$ cd ~/pkgsrc/misc/figlet
 
-then we change to the directory (category) and then to the package we want to install.
-# cd /usr/pkgsrc/misc/figlet
+Build as unprivileged user
+$ make
 
-to install we enter
-# make install
+Install with root privileges 
+$ doas make install
 
 afterwards we clean up and enter
-# make clean
+$ make clean
 
 if this was a package with dependencies, we also enter
-# make clean-depends
+$ make clean-depends
 
 You can put them all in one line too.
-# make install clean clean-depends
+$ make install clean clean-depends
 
 If you wish to clean the distfiles, the files that have been downloaded, you enter
-# make distclean
+$ make distclean
 
 List Packages:
 $ pkg_info
 
 Removing Packages:
-# pkg_delete packagename
+$ doas pkg_delete packagename
 
 Updating Packages: You can update a single package using make update.
-# make update
+$ doas make update
 
                             WIP
 
-$ cd /usr/pkgsrc/
+$ cd ~/pkgsrc
 $ git clone git://wip.pkgsrc.org/pkgsrc-wip.git wip
-$ doas chown -R user /usr/pkgsrc/wip/
+$ doas chown -R user /wip
 
 To try packages
-$ cd /usr/pkgsrc/wip/<package directory>
+$ cd ~/pkgsrc/wip/<package directory>
 $ make install
 
 _____________________________________________________________
@@ -184,7 +181,7 @@ _____________________________________________________________
 _____________________________________________________________
 
 
-Once again, login as root and add an user
+Login as root and add an user
 
 # useradd -g users -G wheel,operator,users -s /bin/ksh -c "your real name" -m user_name
 # passwd user_name
@@ -208,32 +205,6 @@ If you fuck up with useradd check out usermod: A good walk through on usermod op
 https://www.tecmint.com/usermod-command-examples/
 
 
-____________________________________________________________
-
-                    Example .xinitrc
-____________________________________________________________
-
-
-#!/bin/sh
-#
-# ~/.xinitrc
-#
-# Executed by startx (run your window manager from here)
-
-if [ -d /etc/X11/xinit/xinitrc.d ]; then
-  for f in /etc/X11/xinit/xinitrc.d/*; do
-    [ -x "$f" ] && . "$f"
-  done
-  unset f
-fi
-
-xrdb -merge ~/.Xresources && setxkbmap us
-
-xset b off && feh --bg-fill "/home/${USER}/Wallpapers/wall.jpg"
-
-exec spectrwm
-
-
 _____________________________________________________________
 
                        SET UP YOUR WM
@@ -243,18 +214,14 @@ _____________________________________________________________
 Copy /usr/pkg/share/examples/spectrwm/spectrwm.conf to your home directory ~/.spectrwm.conf
 Don't forget to copy also the spectrwm_lang.conf for your keyboard and probably rename it ~/.keybindings.conf
 
-Use configs from this maddog: https://github.com/voidpin/spectrwm-netbsd
+Before you login you'll need to edit /etc/hosts or you'll get xauth errors when starting WM with startx then fix /etc/hosts:
 
-Next time you login, you can issue startx to launch the graphical environment on your install.
+ ::1                     localhost HOSTNAME.local hackbox
+ 127.0.0.1               localhost HOSTNAME.local hackbox
 
-If you get xauth errors when starting WM with startx then fix /etc/hosts:
-
- ::1                     localhost hackbox.local hackbox
- 127.0.0.1               localhost hackbox.local hackbox
-
-NOTE: "hackbox" is the name of my computer, should be the same as stated in /etc/rc.conf.
+NOTE: HOSTNAME should be the same as stated in /etc/rc.conf.
 "local" is the name I gave my DNS while installing.
-Set hostname in /etc/rc.conf with 'hostname=somehostname'
+Set hostname in /etc/rc.conf with 'hostname=HOSTNAME'
 
 
 _____________________________________________________________
@@ -315,24 +282,10 @@ Back at the start installation screen choose
 
 At the bottom of your screen type
 #shutdown -p now
-_____________________________________________________________
-
-                       Mounting Drives
-_____________________________________________________________
 
 
-https://archive.unitedbsd.com/t/netbsd-desktop-pt-5-automounting-with-berkeley-am-utils/294
 
 
-_____________________________________________________________
+					    ~This guide is a WIP~
 
-                     Setting up a Firewall
-_____________________________________________________________
-
-
-https://archive.unitedbsd.com/t/netbsd-desktop-pt-3-simple-stateful-firewall-with-npf/286
-
-
-~This guide is a WIP~
-
-Enjoy NetBSD!
+						Enjoy NetBSD!
