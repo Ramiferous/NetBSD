@@ -13,6 +13,12 @@ case "$-" in *i*)
 	#PS1="${USER}@${HOST%%.*} $PS1"
 	set -o emacs
 
+# Run 'fff' with 'f' or whatever you decide to name the function.
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
 	# alias's
 	alias c="clear"
 	alias ..="cd .."
