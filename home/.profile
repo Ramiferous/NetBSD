@@ -4,7 +4,7 @@
 export EDITOR=vim
 
 # Set configuration tool for Qt5-applications
-export QT_QPA_PLATFORMTHEME=qt5ct
+#export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Set the search path for programs.
 PATH=$HOME/bin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R7/bin:/usr/pkg/bin
@@ -14,6 +14,9 @@ export PATH
 # Configure the shell to load .shrc at startup time.
 # This will happen for every shell started, not just login shells.
 export ENV=$HOME/.shrc
+
+# FFF open
+export FFF_OPENER="/home/dave/.fffeh.sh"
 
 # FFF colours
 export FFF_COL2=9
@@ -28,3 +31,5 @@ export NAILRC=$HOME/.nailrc
 export LANG=en_AU.UTF-8
 export LC_CTYPE="$LANG"
 export LC_ALL=""
+
+#export GPG_TTY=$(tty)

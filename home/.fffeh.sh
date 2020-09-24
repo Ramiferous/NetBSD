@@ -7,7 +7,7 @@ case $(file -bi "$1") in
 	mpv --no-video "$1"
     ;;
 
-    *.mp4|*.mkv|*.webm)
+    video/*.mp4|*.mkv|*.webm)
 	mpv --geometry=700x393 "$1"
     ;;
 
