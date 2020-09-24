@@ -16,7 +16,7 @@ export PATH
 export ENV=$HOME/.shrc
 
 # FFF open
-export FFF_OPENER="/home/dave/.fffeh.sh"
+export FFF_OPENER="/home/dave/.fff_open.sh"
 
 # FFF colours
 export FFF_COL2=9
