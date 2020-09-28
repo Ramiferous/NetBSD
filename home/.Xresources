@@ -9,6 +9,11 @@ Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
+! Passmenu
+Pinentry*faceName: xft:Pragmata:pixelsize=10
+Pinentry*internalBorder: 7
+Pinentry*geometry: 78x15
+
 ! General settings
 XTerm*termName: xterm-256color
 XTerm*decTerminalID: vt340
@@ -86,7 +91,6 @@ XTerm*vt100.translations: #override \
 !
 ! My Old Colours [DARK]
 !
-!! Darker COLORSET
 !*foreground: #dddddd
 !*background: #151515
 !black
@@ -121,10 +125,10 @@ XTerm*vt100.translations: #override \
 !*foreground: #D7D0C7
 !*background: #151515
 !black
-! *color0:     #AF875F
-! *color8:     #AF875F
-*color0:     #101010
-*color8:     #404040
+*color0:     #AF875F
+*color8:     #AF875F
+!*color0:     #101010
+!*color8:     #404040
 !red
 *color1:     #E84F4F
 *color9:     #D23D3D
@@ -245,30 +249,30 @@ XTerm*vt100.translations: #override \
 ! Satori
 !
 ![colors]
-!foreground = #839496
-!background = #09090d
-!cursor = #839496
+!foreground:	#839496
+!background:	#09090d
+!cursor:	#839496
 !#black
-!*color0 = #353540
-!*color8 = #545466
+!*color0:	#353540
+!*color8:	#545466
 !#red
-!*color1 = #8c5760
-!*color9 = #b26f7a
+!*color1:	#8c5760
+!*color9:	#b26f7a
 !#green
-!*color2 = #7b8c58
-!*color10 = #9db270
+!*color2:	#7b8c58
+!*color10:	#9db270
 !#yellow
-!*color3 = #8c6e43
-!*color11 = #b28c55
+!*color3:	#8c6e43
+!*color11:	#b28c55
 !#blue
-!*color4 = #58698c
-!*color12 = #7086b2
+!*color4:	#58698c
+!*color12:	#7086b2
 !#magenta
-!*color5 = #7b5e7d
-!*color13 = #9c77b2
+!*color5:	#7b5e7d
+!*color13:	#9c77b2
 !#cyan
-!*color6 = #66808c
-!*color14 = #82a2b2
+!*color6:	#66808c
+!*color14:	#82a2b2
 !#white
-!*color7 = #8c8b8b
-!*color15 = #b8b8c8
+!*color7:	#8c8b8b
+!*color15:	#b8b8c8
