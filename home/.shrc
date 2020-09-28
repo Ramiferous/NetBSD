@@ -13,6 +13,8 @@ case "$-" in *i*)
 	#PS1="${USER}@${HOST%%.*} $PS1"
 	set -o emacs
 
+#export GPG_TTY=$(tty)
+
 # Run 'fff' with 'f' or whatever you decide to name the function.
 f() {
     fff "$@"
@@ -44,21 +46,22 @@ f() {
 	alias bye="shutdown -p now"
 	alias reload="xrdb -merge ~/.Xresources"
 	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
+	alias play="mpv --geometry=700x393"
+	alias view="feh -g 700x393 --scale-down"
 	alias chat="~/Downloads/birch/./birch"
 	alias todo="cat ~/Documents/todo/todo.txt"
 	alias todoed="vim ~/Documents/todo/todo.txt"
 	alias dumpscreen="cd ~/Pictures/dumps && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
 	alias dumpwindow="cd ~/Pictures/dumps && scrot -ub -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
-	alias view="sxiv -p -b"
 	alias walls="sxiv -t -p -b -r ~/Pictures/walls &"
-	alias dumps="sxiv -t -p -b -r ~/Pictures/dumps &"
+	alias dumps="sxiv -t -p -b -r -g 700x393 ~/Pictures/dumps &"
 	alias listfonts="convert -list font"
 	alias addwifi="doas vim /etc/wpa_supplicant.conf"
 	alias mnt="doas mount -t msdos /dev/sd0e /mnt && cd /mnt"
 	alias umnt="doas umount -t msdos /mnt && cd"
 	alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
 	alias wttr="curl wttr.in/Melbourne?format=3"
-	alias bat="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
+	alias bat="~/.bat.sh"
 	alias flex="cd ~/Pictures/dumps && cat /etc/motd && uname -sr | figlet -f smslant && ufetch && df -h && scrot -q 100 '%m-%d-%Y-%R.png' && cd"
 	alias phlog="ssh -i /home/dave/.ssh/id_rsa ramiferous@g.nixers.net"
 	;;
