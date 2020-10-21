@@ -1,0 +1,56 @@
+# Copy this to ~/.skippyrc and edit it to your liking
+#
+# Notes:
+#
+# - keysym can be anything XStringToKeysym can handle
+#   (like F11, KP_Enter or implementation specific keysyms)
+#
+# - colors can be anything XAllocNamedColor can handle
+#   (like "black" or "#000000")
+#
+# - distance is a relative number, and is scaled according to the scale
+#   factor applied to windows
+#
+# - fonts are Xft font descriptions
+#
+# - booleans are "true" or anything but "true" (-> false)
+#
+# - opacity is an integer in the range of 0-255
+#
+# - brighness is a floating point number (with 0.0 as neutral)
+#
+
+[general]
+keysym = F2
+distance = 50
+useNETWMFullscreen = true
+ignoreSkipTaskbar = false
+showAllDesktops = true
+showAllWorkspaces = true
+updateFreq = 10.0
+lazyTrans = false
+
+[xinerama]
+showAll = true
+
+[normal]
+brightness = 0.0
+tint = black
+tintOpacity = 0
+opacity = 200
+border = gray33
+
+[highlight]
+brightness = 0.05
+tint = #d0d0ff
+tintOpacity = 65
+opacity = 255
+border = #d0d0ff
+
+[tooltip]
+show = false
+border = #ffffff
+background = #404040
+opacity = 128
+text = #ffffff
+font = fixed-11:weight=bold
