@@ -17,9 +17,9 @@ export XDG_RUNTIME_DIR=/tmp/${USER}-runtime
 
 xrdb -merge ~/.Xresources && setxkbmap us
 
-xset b off & #& feh --bg-fill "/home/${USER}/Pictures/walls/cloudmoon.jpg"
+xset b off && feh --bg-scale "/home/${USER}/Pictures/walls/glitch.png"
 
-hashwall -f '#4E3034' -b '#2F1D20' -s 12 &   #burgandy
+#hashwall -f '#4E3034' -b '#2F1D20' -s 12 &   #burgandy
 #hashwall -f '#2b4507' -b '#121d03' -s 12 &   #olive green
 #hsetroot -solid '#362124' &
 #xsetroot -bg \#362124 -mod 2 2
