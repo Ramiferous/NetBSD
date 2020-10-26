@@ -17,16 +17,14 @@ export XDG_RUNTIME_DIR=/tmp/${USER}-runtime
 
 xrdb -merge ~/.Xresources && setxkbmap us
 
-xset b off & 
-#& feh --bg-fill "/home/${USER}/Pictures/walls/cloudmoon.jpg"
+xset b off & #& feh --bg-fill "/home/${USER}/Pictures/walls/cloudmoon.jpg"
 
-hashwall -f '#362124' -b '#2f1d20' -s 12 &
-#hashwall -f '#3b4252' -b '#2e3440' -s 12 &
+hashwall -f '#4E3034' -b '#2F1D20' -s 12 &   #burgandy
+#hashwall -f '#2b4507' -b '#121d03' -s 12 &   #olive green
 #hsetroot -solid '#362124' &
-#xsetroot -solid '#362124' &
 #xsetroot -bg \#362124 -mod 2 2
 
-#sleep 3 && skippy-xd --start-daemon
+sleep 3 && skippy-xd --start-daemon &
 
 sleep 2 && redshift -c ~/.config/redshift/redshift.conf &
 

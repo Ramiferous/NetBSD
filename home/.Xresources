@@ -10,9 +10,9 @@ Xft.dpi: 96
 Xft.rgba: rgb
 
 ! Passmenu
-Pinentry*faceName: xft:Pragmata:pixelsize=10
-Pinentry*internalBorder: 7
-Pinentry*geometry: 78x15
+!Pinentry*faceName: xft:Pragmata:pixelsize=10
+!Pinentry*internalBorder: 7
+!Pinentry*geometry: 78x15
 
 ! Sixel settings
 XTerm*decTerminalID: vt340
@@ -42,7 +42,12 @@ XTerm*vt100.translations: #override \
     Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
 
 ! Colors
-*background: #1C1C1C
+!olive
+*background: #121D03
+!black
+!*background: #1C1C1C
+!burgandy
+!*background: #1F1315
 *foreground: blanchedalmond
 !black
 *color0:     #AF875F
