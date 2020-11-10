@@ -9,10 +9,30 @@ Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
-! Passmenu
-!Pinentry*faceName: xft:Pragmata:pixelsize=10
-!Pinentry*internalBorder: 7
-!Pinentry*geometry: 78x15
+! Xnotify
+xnotify.title.font: PragmataPro:pixelsize=14
+xnotify.body.font: PragmataPro:pixelsize=12
+xnotify.background: #1C1C1C
+xnotify.foreground: blanchedalmond
+xnotify.border: rgb:fe/b3/31
+xnotify.geometry: 0x40-3+20
+!xnotify.gravity: SE
+xnotify.borderWidth: 1
+xnotify.gap: 8
+xnotify.imageWidth: 50
+xnotify.leading: 5
+xnotify.padding: 10
+!xnotify.shrink: true
+xnotify.alignment: left
+
+! Xclock
+XClock*update: 1            
+XClock*geometry: 170x170+1020+12
+XClock*majorColor:  rgba:f0/f0/19/7b
+XClock*minorColor:  rgba:a0/c0/f0/c0
+XClock*hourColor:   rgba:c9/66/11/72
+XClock*minuteColor: rgba:00/82/9f/72
+XClock*secondColor: rgba:50/93/30/6f
 
 ! Sixel settings
 XTerm*decTerminalID: vt340
@@ -42,12 +62,7 @@ XTerm*vt100.translations: #override \
     Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
 
 ! Colors
-!olive
-*background: #121D03
-!black
-!*background: #1C1C1C
-!burgandy
-!*background: #1F1315
+*background: #1C1C1C
 *foreground: blanchedalmond
 !black
 *color0:     #AF875F

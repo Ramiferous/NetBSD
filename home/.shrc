@@ -8,12 +8,11 @@ case "$-" in *i*)
 	if /bin/test -z "${HOST}"; then
 		HOST="$(hostname)"
 	fi
+	#PS1="% "
 	PS1="$PS1"
 	#PS1="\${PWD##*/} \$ "
 	#PS1="${USER}@${HOST%%.*} $PS1"
 	set -o emacs
-
-#export GPG_TTY=$(tty)
 
 # Run 'fff' with 'f' or whatever you decide to name the function.
 f() {
@@ -23,6 +22,7 @@ f() {
 
 	# alias's
 	alias c="clear"
+	alias v="vim"
 	alias ..="cd .."
 	alias ll="ls -l"
 	alias lsa="ls -a"
@@ -38,7 +38,7 @@ f() {
 	alias pkgclean="doas pkgin clean"
 	alias sysupg="doas sysupgrade auto https://nyftp.netbsd.org/pub/NetBSD-daily/netbsd-9/latest/amd64"
 	alias rustupdate="rustup update"
-	alias cc="rm -r .cache/*"
+	alias cclean="rm -r .cache/*"
 	alias cvsup="cd ~/pkgsrc/ && doas cvs update -dP && cd"
 	alias wipup="cd ~/pkgsrc/wip/ && git pull -r && cd"
 	alias miccdd="doas make install clean clean-depends distclean"
@@ -50,11 +50,12 @@ f() {
 	alias listen="mpv --no-video"
 	alias view="feh -g 700x393 --scale-down"
 	alias preview="sxiv -t -p -b -r"
-	alias chat="~/Downloads/birch/./birch"
+	alias chat="~/Downloads/birch/./birch -u ramiferous"
 	alias todo="cat ~/Documents/todo/todo.txt"
 	alias todoed="vim ~/Documents/todo/todo.txt"
 	alias dumpscreen="cd ~/Pictures/dumps && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
 	alias dumpwindow="cd ~/Pictures/dumps && scrot -ub -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
+	alias pics="sxiv -t -p -b ~/Pictures &"
 	alias walls="sxiv -t -p -b -r ~/Pictures/walls &"
 	alias dumps="sxiv -t -p -b -r -g 700x393 ~/Pictures/dumps &"
 	alias listfonts="convert -list font"
@@ -63,8 +64,10 @@ f() {
 	alias umnt="doas umount -t msdos /mnt && cd"
 	alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
 	alias wttr="curl wttr.in/Melbourne?format=3"
-	alias bat="~/.bat.sh"
+	alias charge="~/.bat.sh"
 	alias flex="cd ~/Pictures/dumps && cat /etc/motd && uname -sr | figlet -f smslant && ufetch && df -h && scrot -q 100 '%m-%d-%Y-%R.png' && cd"
 	alias phlog="ssh -i /home/dave/.ssh/id_rsa ramiferous@g.nixers.net"
+	alias sdflogin="ssh ramiferous@tty.sdf.org"
+	alias anonradio="mpv --no-video http://anonradio.net:8000/anonradio"
 	;;
 esac
