@@ -14,8 +14,8 @@ xnotify.title.font: PragmataPro:pixelsize=14
 xnotify.body.font: PragmataPro:pixelsize=12
 xnotify.background: #1C1C1C
 xnotify.foreground: blanchedalmond
-xnotify.border: rgb:fe/b3/31
-xnotify.geometry: 0x40-3+20
+xnotify.border: #494561
+xnotify.geometry: 0x40-4+20
 !xnotify.gravity: SE
 xnotify.borderWidth: 1
 xnotify.gap: 8
