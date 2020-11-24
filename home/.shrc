@@ -59,7 +59,7 @@ ex ()
 	alias ....="cd ../../../.. && pwd"
 	alias fm="shfm"
 	alias lsd="exa -l && pwd"
-	alias lsd="exa -al & pwd"
+	alias lsa="exa -al && pwd"
 	alias reboot="doas reboot"
         alias bye="shutdown -p now"
         alias reload="xrdb -merge ~/.Xresources"
