@@ -8,7 +8,6 @@ case "$-" in *i*)
 	if /bin/test -z "${HOST}"; then
 		HOST="$(hostname)"
 	fi
-	#PS1="% "
 	PS1="$PS1"
 	#PS1="\${PWD##*/} \$ "
 	#PS1="${USER}@${HOST%%.*} $PS1"
