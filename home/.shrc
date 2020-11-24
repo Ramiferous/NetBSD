@@ -20,54 +20,104 @@ f() {
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
 
-	# alias's
+# ARCHIVE EXTRACTION
+# usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1    ;;
+      *.tar.gz)	   tar xzf $1    ;;
+      *.tar.xz)	   tar xf $1     ;;
+      *.tar)	   tar xf $1     ;;
+      *.tar.zst)   uzstd $1      ;;
+      *.bz2)	   bunzip2 $1    ;;
+      *.rar)	   unrar x $1    ;;
+      *.gz)	   gunzip $1     ;;
+      *.tbz2)	   tar xjf $1    ;;
+      *.tgz)	   tar xzf $1    ;;
+      *.zip)	   unzip $1      ;;
+      *.Z)	   uncompress $1 ;;
+      *.7z)	   7z x $1       ;;
+      *.deb)	   ar x $1       ;;
+      *)	   echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+
+# ALIASES
+
+	#sysutils
 	alias c="clear"
 	alias v="vim"
-	alias ..="cd .."
-	alias ll="ls -l"
-	alias lsa="ls -a"
-	alias lsal="ls -alh"
+	alias dv="doas vim"
+	alias .="cd .. && pwd"
+	alias ..="cd ../.. && pwd"
+	alias ...="cd ../../.. && pwd"
+	alias ....="cd ../../../.. && pwd"
+	alias fm="shfm"
 	alias lsd="exa -l && pwd"
-	alias lsda="exa -al"
+	alias lsd="exa -al & pwd"
+	alias reboot="doas reboot"
+        alias bye="shutdown -p now"
+        alias reload="xrdb -merge ~/.Xresources"
+        alias addwifi="doas vim /etc/wpa_supplicant.conf"
+        alias mnt="doas mount -t msdos /dev/sd0e /mnt && cd /mnt"
+        alias umnt="doas umount -t msdos /mnt && cd"
+        alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
+        alias listfonts="convert -list font"
+	
+	#pkgin
+	alias search="pkgin search"
 	alias pkginstall="doas pkgin install"
-	alias pkgremove="doas pkgin remove"
-	alias pkgupdate="doas pkgin update"
-	alias pkgupgrade="doas pkgin upgrade"
+	alias remove="doas pkgin remove"
+	alias update="doas pkgin update"
+	alias upgrade="doas pkgin upgrade"
 	alias fullupgrade="doas pkgin full-upgrade"
 	alias autoremove="doas pkgin autoremove"
 	alias pkgclean="doas pkgin clean"
+
+	#pkgsrc	
+	alias cvsup="cd ~/pkgsrc/ && doas cvs update -dP && cd"
+        alias wipup="cd ~/pkgsrc/wip/ && git pull -r && cd"
+	alias miccdd="doas make install clean clean-depends distclean"
 	alias sysupg="doas sysupgrade auto https://nyftp.netbsd.org/pub/NetBSD-daily/netbsd-9/latest/amd64"
 	alias rustupdate="rustup update"
 	alias cclean="rm -r .cache/*"
-	alias cvsup="cd ~/pkgsrc/ && doas cvs update -dP && cd"
-	alias wipup="cd ~/pkgsrc/wip/ && git pull -r && cd"
-	alias miccdd="doas make install clean clean-depends distclean"
-	alias reboot="doas reboot"
-	alias bye="shutdown -p now"
-	alias reload="xrdb -merge ~/.Xresources"
-	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
+
+	#meta	
 	alias watch="mpv --geometry=700x393"
-	alias listen="mpv --no-video"
-	alias view="feh -g 700x393 --scale-down"
+        alias listen="mpv --no-video"
+        alias view="feh -g 700x393 --scale-down"
 	alias preview="sxiv -t -p -b -r"
-	alias chat="~/Downloads/birch/./birch -u ramiferous"
-	alias todo="cat ~/Documents/todo/todo.txt"
-	alias todoed="vim ~/Documents/todo/todo.txt"
-	alias dumpscreen="cd ~/Pictures/dumps && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
-	alias dumpwindow="cd ~/Pictures/dumps && scrot -ub -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
 	alias pics="sxiv -t -p -b ~/Pictures &"
-	alias walls="sxiv -t -p -b -r ~/Pictures/walls &"
-	alias dumps="sxiv -t -p -b -r -g 700x393 ~/Pictures/dumps &"
-	alias listfonts="convert -list font"
-	alias addwifi="doas vim /etc/wpa_supplicant.conf"
-	alias mnt="doas mount -t msdos /dev/sd0e /mnt && cd /mnt"
-	alias umnt="doas umount -t msdos /mnt && cd"
-	alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
+	alias walls="sxiv -t -p -b -r -g 1200x675 ~/Pictures/walls &"
+	alias dumps="sxiv -t -p -b -r -g 1200x675 ~/Pictures/dumps &"
+	alias dumpscreen="cd ~/Pictures/dumps && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
+        alias dumpwindow="cd ~/Pictures/dumps && scrot -ub -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
+	
+	#banana
+	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
 	alias wttr="curl wttr.in/Melbourne?format=3"
 	alias charge="~/.bat.sh"
-	alias flex="cd ~/Pictures/dumps && cat /etc/motd && uname -sr | figlet -f smslant && ufetch && df -h && scrot -q 100 '%m-%d-%Y-%R.png' && cd"
+	alias chat="~/Downloads/birch/./birch -u ramiferous"
+        alias todo="cat ~/Documents/todo/todo.txt"
+        alias todoed="vim ~/Documents/todo/todo.txt"
 	alias phlog="ssh -i /home/dave/.ssh/id_rsa ramiferous@g.nixers.net"
 	alias sdflogin="ssh ramiferous@tty.sdf.org"
 	alias anonradio="mpv --no-video http://anonradio.net:8000/anonradio"
+	alias email="hmail -A gmail"
+	
+	# kb-management alias'
+	alias kbl="kb list"
+	alias kbe="kb edit"
+	alias kba="kb add"
+	alias kbv="kb view"
+	alias kbd="kb delete --id"
+	alias kbg="kb grep"
+	alias kbt="kb list --tags"
 	;;
 esac
