@@ -19,6 +19,9 @@ f() {
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
 
+# Zoxide
+eval "$(zoxide init posix --hook prompt)"
+
 # ARCHIVE EXTRACTION
 # usage: ex <file>
 ex ()
@@ -58,6 +61,8 @@ ex ()
 	alias ...="cd ../../.. && pwd"
 	alias ....="cd ../../../.. && pwd"
 	alias fm="shfm"
+	alias pat="bat -p"
+	alias nat="bat -n"
 	alias lsd="exa -l && pwd"
 	alias lsa="exa -al && pwd"
 	alias reboot="doas reboot"
@@ -101,7 +106,7 @@ ex ()
 	#banana
 	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
 	alias wttr="curl wttr.in/Melbourne?format=3"
-	alias charge="~/.bat.sh"
+	alias charge="~/.charge.sh"
 	alias chat="~/Downloads/birch/./birch -u ramiferous"
         alias todo="cat ~/Documents/todo/todo.txt"
         alias todoed="vim ~/Documents/todo/todo.txt"

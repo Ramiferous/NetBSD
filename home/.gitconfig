@@ -1,0 +1,9 @@
+[user]
+	email = david.anthony.pfeiffer@gmail.com
+	name = Ramiferous
+[core]
+	editor = vim
+[core]
+ pager = diffr | less -R
+[interactive]
+ diffFilter = diffr
