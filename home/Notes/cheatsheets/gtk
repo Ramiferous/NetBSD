@@ -1,0 +1,14 @@
+## GTK3
+Firefox uses gtk-3
+System wide configuration, place the contents of the theme's gtk-3.0 folder in /usr/pkg/share/gtk-3.0/
+For user configuration ~/.config/gtk-3.0/
+
+The best dark gtk3 theme is Adwaita-grey-dark
+
+## GTK2
+Themes go in /usr/pkg/share/themes/
+For system wide configuration, place the contents of the theme's gtk-2.0 folder in /usr/pkg/share/gtk-2.0/
+For user configuration ~/.gtkrc-2.0
+
+The best dark gtk2 theme is still Mire v2
+

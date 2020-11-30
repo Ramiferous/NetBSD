@@ -1,0 +1,2 @@
+printf 'IMG:/home/dave/Pictures/netbsd2.png\tThis is a notification title\tThis is some notification text\n' > $XNOTIFY_FIFO
+printf 'title\tbody\n' > //home/dave/.cache/xnotify:0.fifo 

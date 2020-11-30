@@ -1,0 +1,44 @@
+Set up git for command line usage
+
+In your home directory,
+
+$ git config --global user.name "Ramiferous"
+$ git config --global user.email david.pfeiffer@protonmail.com
+$ git config --global core.editor nvim
+
+You should now have a .gitconfig file in your home directory.
+
+Now, create a folder for your repo and cd into it and run,
+$ git clone https://github.com/Ramiferous/your_repo
+
+Now when you change a file you can check the local status against the master, add the file(s), commit the changes and push,
+
+$ git status
+$ git add . 		#Note the dot, it means all changes. If you just want to commit a single file use the file name instead
+$ git status 		#Check the files were added
+$ git commit 		#Will launch the editor defined above. Type a commit message
+$ git push 		#You'll be prompted for username and password (the ones for your git account)
+
+If, for some reason you don't want to commit your changes and want to keep the master version, just run
+$ git restore . 	#As with git add, notice the dot, the same applies here one file (name of the file) or all files (the dot)
+
+
+To remove files from your repo use git rm.
+
+If you want to remove a file from the Git repository and the filesystem, use:
+
+$ git rm file1.txt
+or 
+$ git rm -r /dir
+$ git commit -m "remove file1.txt"
+
+But if you want to remove the file only from the Git repository and not remove it from the filesystem, use:
+
+$ git rm --cached file1.txt
+$ git commit -m "remove file1.txt"
+
+And to push changes to remote repo
+
+$ git push  
+
+

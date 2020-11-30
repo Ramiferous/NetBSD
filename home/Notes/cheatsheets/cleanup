@@ -1,0 +1,10 @@
+## Cleaning shit up:
+$ rm -r .cache/*
+
+Check also if you find something cached in ~/.local/share and ~/.local/share/applications, remove it.
+You can also empty (but dont delete) this file: /var/db/pkgin/pkgin_install-err.log
+
+
+## Wanting to get a list of installed packages:
+$ pkgin list | awk '{print $1}' >list_of_packages
+

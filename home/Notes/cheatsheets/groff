@@ -1,0 +1,5 @@
+# For standard text documents use "groff -ms"
+# Ream the groff_ms man page for macros
+
+# Convert to .pdf
+groff -ms file.ms -T pdf > file.pdf

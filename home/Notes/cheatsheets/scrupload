@@ -1,0 +1,5 @@
+## upload screenshots from the command line
+$ curl -F'file=@screenshot.png' https://0x0.st
+of
+$ curl -s --upload-file /path/to/screenshot.png https://transfer.sh/screenshot.png
+

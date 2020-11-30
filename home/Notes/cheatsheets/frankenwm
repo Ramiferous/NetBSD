@@ -1,0 +1,30 @@
+# FrankenWM - ~/pkgsrc/wm/frankenwm
+
+First make a copy of config.def.h and do your edits
+
+$ cd ~/pkgsrcwm/frankenwm/
+$ make
+
+Once its done, don't run make install 😉
+
+$ cd work
+$ mv config.def.h config.def.h.orig 
+$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wm/frankenwm/work/
+$ cd ..
+$ mkpatches
+$ make clean
+
+Then run:
+
+$rm patches/patch-config.def.h.orig 
+
+Then add a comment to patch-config.def.h inside the patches directory. Something along the lines of "personal mods" etc.
+
+Then run:
+ 
+$ make makepatchsum      */to generate the sha sum of your patch/*
+
+Now you can do:
+
+$ make 
+$ make install

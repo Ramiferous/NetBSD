@@ -1,0 +1,10 @@
+## Play local sound files with sox:
+It's like imagemagick but for sound files. One of the utilities is "play" which simply plays the files given on the command line in sequential order. There is no curse interface to manage your library though, so I make playlists by symlinking files in a "playlist" directory, then play the files in random order. For example:
+                                                                                                            
+$ cd /var/data/music
+$ ln -s jamiroquai/*/*.mp3 ./playlist/
+$ ln -s rhcp/*/*.ogg ./playlist/
+
+$ cd playlist
+$ play $(ls|shuf)
+

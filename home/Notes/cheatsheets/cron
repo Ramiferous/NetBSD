@@ -1,0 +1,9 @@
+# set a cronjob to reload your weather script for your bar
+# run:
+
+$ crontab -e
+
+Add:
+# run weather script for bar every 30 minutes
+30      *       *       *       *       /home/$USER/.config/spectrwm/./weather.sh
+

@@ -1,0 +1,17 @@
+## TAR
+Extract a tar file:
+$ tar -xvf foo.tar
+
+Extract and uncompress a tar.gz file:
+$ tar -xvzf foo.tar.gz
+
+Extract and uncompress a tar.bz2 file:
+$ tar -xvjf foo.tar.bz2
+
+Option  Description
+-x  Extract files from an archive
+-v  Verbosely list files processed
+-f  Specify an archive or a tarball filename
+-z  Decompress the contents of the compressed archive created by gzip program (tar.gz)
+-j  Decompress the contents of the compressed archive created by bzip2 program (tar.bz2)
+

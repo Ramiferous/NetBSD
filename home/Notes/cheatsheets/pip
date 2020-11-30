@@ -1,0 +1,5 @@
+## To install python apps using pip first install py37-pip (or py38-pip depending on your python version). 
+You'll then need to install pkg_alternatives.
+
+$ doas pkgin install py37-pip pkg_alternatives
+

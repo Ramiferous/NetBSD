@@ -1,0 +1,35 @@
+## Senting email with hairloom-mailx
+$ hmail -A gmail email@xyz.com
+
+To send attachments:
+~@ /path/to/attachment
+
+## Reading mail
+Unfortunatly hmail opens at the bottom of your inbox showing you the oldest messages.... (until I figure out how to change this that is). 
+
+# Type 'headers' from within a buffer to get back to your inbox
+
+# to page down:
+& z
+
+to read a spesific message just type its four digit id number eg.
+& 1087
+
+(A) ?
+(F) no idea -- I assume flaged?
+(U) Unread
+
+# to delete a message 
+& delete 1087
+
+# to download attachments:
+& write 1087 sometitle
+
+Enter filename for part 1 (text/plain): email.txt
+Enter filename for part 2 (image/jpeg): file.jpg
+Enter filename for part 2 (image/png): file.png
+
+# The attachments will be saved to the home directory, I havent yet figured out how to specify where to save the attachments or how to rename them when saving. 
+
+# The 'sometitle' is an empty file but it is necesary to type something otherwise nothing is downloaded.
+

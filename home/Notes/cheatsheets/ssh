@@ -1,0 +1,5 @@
+## Create SSH keys
+$ ssh-keygen
+
+Follow prompts, choose defaults.
+

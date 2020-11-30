@@ -1,0 +1,3 @@
+# To get YouTube working in a webkit browset you'll first need to install thje following packages:
+
+$ doas pkgin install gst-plugins1-bad gst-plugins1-good gst-plugins1-libav gst-plugins1-oss gst-plugins1-ugly gst-plugins1-x264 gst-plugins1-vpx

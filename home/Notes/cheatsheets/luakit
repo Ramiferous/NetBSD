@@ -1,0 +1,11 @@
+# rc.lua and theme.lua go in ~/.config/luakit/
+
+Some helpful links if you ever try it again:
+
+https://github.com/luakit/luakit/wiki/Hiding-the-statusbar
+
+https://github.com/luakit/luakit/issues/256
+
+https://www.lexa.by/dotfiles/config/luakit/theme.lua.html
+
+...I'll come back oneday

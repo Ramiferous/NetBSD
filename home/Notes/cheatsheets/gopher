@@ -1,0 +1,41 @@
+### Nixers Gopher
+
+ > Access my account ?
+           
+               ssh -i path/to/key account@g.nixers.net
+           
+           Where "account" is your username.
+           
+           
+           > Add content to my hole ?
+           
+           A symlink to your hole is availabe in your home directory:
+           
+               cd ~/public_gopher
+           
+           By default, all files present in this directory is listed
+           by the gopher server. If an index file is present, its content
+           is displayed rather than the directory listing.
+           
+           > Visit my hole ?
+           
+           Your hole is visible under a directory named after your account
+           name. For example:
+           
+               gopher://g.nixers.net/1/~account/
+           
+           > Post content to my phlog ?
+           
+           By sending emails !
+           
+           Edit ~/.forward and set your real email address. The content of the file
+           should ressemble something like this:
+           
+               "|/usr/local/bin/scribo -b ~/public_gopher/rlog -a you@domain.tld"
+           
+           Every email sent to <account@g.nixers.net> will create a file in the
+           the "rlog" directory with you email content inside it. The post title
+           will inherit from the mail subject, as for the file name.
+           
+           Check forward(5) and scribo(1) for further information.
+
