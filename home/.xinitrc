@@ -26,18 +26,12 @@ XNOTIFY_FIFO="$HOME/.cache/xnotify$DISPLAY.fifo"
 tiramisu -j | jq --raw-output --unbuffered '.summary + "\t" + .body' > $XNOTIFY_FIFO &
 
 xset b off & 
-xset r rate 200 35 &
-
-#& feh --bg-scale "/home/${USER}/Pictures/walls/glitch.png"
-#hashwall -f '#4E3034' -b '#2F1D20' -s 12 &   #burgandy
-hashwall -f '#494561' -b '#252831' -s 12 &   #blue
-#hsetroot -solid '#252831' & #darkblue 
-#'#362124' & #burgandy
-#xsetroot -bg \#362124 -mod 2 2
-
-sleep 5 && /$HOME/.config/spectrwm/./weather.sh &
-sleep 3 && skippy-xd --start-daemon &
+xset r rate 200 50 &
+feh --bg-scale "/home/${USER}/Pictures/walls/stout.jpg"
+skippy-xd --start-daemon &
+ubar | unibar uni &
+/$HOME/.config/spectrwm/./weather.sh &
+picom &
 sleep 2 && redshift -c ~/.config/redshift/redshift.conf &
-sleep 1 && picom &
 
-exec spectrwm
+exec frankenwm
