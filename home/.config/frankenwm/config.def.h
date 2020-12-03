@@ -16,15 +16,15 @@
 #define PANEL_HEIGHT    18           /* 0 for no space for panel, thus no panel */
 #define DEFAULT_MODE    TILE         /* TILE MONOCLE BSTACK GRID FIBONACCI EQUAL */
 #define ATTACH_ASIDE    True         /* False means new window is master */
-#define FOLLOW_MOUSE    False        /* Focus the window the mouse just entered */
+#define FOLLOW_MOUSE    True         /* Focus the window the mouse just entered */
 #define FOLLOW_WINDOW   False        /* Follow the window when moved to a different desktop */
 #define CLICK_TO_FOCUS  True         /* Focus an unfocused window when clicked */
 #define BORDER_WIDTH    2            /* window border width */
 #define SCRATCH_WIDTH   1            /* scratch window border width, 0 to disable */
 #define FOCUS           "#e1aa5d"    /* focused window border color   */
-#define UNFOCUS         "#1c1c1c"    /* unfocused window border color */
+#define UNFOCUS         "#262626"    /* unfocused window border color */
 #define SCRATCH         "#c34646"    /* scratchpad border color */
-#define DESKTOPS        10           /* number of desktops - edit DESKTOPCHANGE keys to suit */
+#define DESKTOPS        6            /* number of desktops - edit DESKTOPCHANGE keys to suit */
 #define DEFAULT_DESKTOP 0            /* the desktop to focus on exec */
 #define MINWSZ          50           /* minimum window size in pixels */
 #define USELESSGAP      6            /* the size of the useless gap in pixels */
@@ -146,10 +146,6 @@ static key keys[] = {
        DESKTOPCHANGE(    XK_4,                             3)
        DESKTOPCHANGE(    XK_5,                             4)
        DESKTOPCHANGE(    XK_6,                             5)
-       DESKTOPCHANGE(    XK_7,                             6)
-       DESKTOPCHANGE(    XK_8,                             7)
-       DESKTOPCHANGE(    XK_9,                             8)
-       DESKTOPCHANGE(    XK_0,                             9)
     /* toggle to last desktop */
     {  MOD4,             XK_Tab,        last_desktop,      {NULL}},
     /* jump to the next/previous desktop */
