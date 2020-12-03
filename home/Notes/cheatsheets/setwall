@@ -1,0 +1,13 @@
+# Setting your wallpaper in ~/.xinitrc
+
+# Feh
+feh --bg-scale "/home/${USER}/Pictures/walls/stout.jpg"
+
+# Hashwall script - hash two colours together. Setting go in /usr/local/bin/hashwall 
+hashwall -f '#4E3034' -b '#2F1D20' -s 12 &   #burgandy, #362124 also works well
+hashwall -f '#494561' -b '#252831' -s 12 &   #blue
+
+# Setroot
+hsetroot -solid '#252831' & #darkblue	## use when using picom 
+xsetroot -bg \#362124 -mod 2 2   ## check pattern
+
