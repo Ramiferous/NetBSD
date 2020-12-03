@@ -1,0 +1,36 @@
+#!/bin/sh
+
+while true; do
+# Uptime
+UP="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+
+# Packages
+PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
+
+# Volume
+VOL="$(mixerctl outputs.master | sed -e 's|.*,||g')"
+LEV="$name$(expr \( $VOL \* 100 \) / 254)"
+
+# Bettery
+BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')% ]"
+
+BAT_STATE="$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')"
+
+if [ "${BAT_STATE}" = "TRUE" ]; then
+	STATE='Charging'
+else
+	STATE='Discharging'
+fi
+
+# Date
+D="$(date '+[ %I:%M | %a, %b %d ]')"
+
+# Weather
+WTTR="$(cat /home/$USER/.config/spectrwm/weather.txt)"
+
+# Print
+echo "$D <|>[ $WTTR | Uptime: $UP | pkgs: $PKGS | Vol: $LEV% | $STATE $BAT_PERC"
+
+sleep 2
+done
+exit 0

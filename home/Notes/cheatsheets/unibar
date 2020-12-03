@@ -1,0 +1,8 @@
+# Unibar binary
+/usr/local/bin/ubar
+
+# Configuration file
+~/.config/unibar/uni.conf
+
+# Start unibar from .xinitrc
+ubar | unibar uni &
