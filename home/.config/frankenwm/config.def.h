@@ -62,6 +62,8 @@ static const char *scrotwindcmd[]       = { "scrot", "-ub", "'%m-%d-%Y-%R.png'",
 static const char *mntcmd[]             = { "doas", "mount", "-t", "msdos", "/dev/sd0e /mnt", NULL };
 static const char *umntcmd[]            = { "doas", "umount", "-t", "msdos /mnt", NULL };
 static const char *skippycmd[]          = { "skippy-xd", "--toggle-window-picker", NULL };
+static const char *killbarcmd[]         = { "killall", "unibar", NULL };
+static const char *unibarcmd[]          = { "ubar", "|", "unibar", "uni", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -136,6 +138,8 @@ static key keys[] = {
     {  MOD1,             XK_Tab,        spawn,             {.com = skippycmd}},
     {  MOD1|CONTROL,     XK_s,          spawn,             {.com = scrotallcmd}},
     {  MOD1|CONTROL|SHIFT, XK_s,        spawn,             {.com = scrotwindcmd}},
+    {  MOD1|CONTROL,     XK_u,          spawn,             {.com = killbarcmd}},
+    {  MOD1|CONTROL|SHIFT, XK_u,        spawn,             {.com = unibarcmd}},
     /* kill current window */
     {  MOD4|SHIFT,       XK_c,          killclient,        {NULL}},
 
