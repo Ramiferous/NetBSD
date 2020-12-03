@@ -16,7 +16,7 @@
 #define PANEL_HEIGHT    18           /* 0 for no space for panel, thus no panel */
 #define DEFAULT_MODE    TILE         /* TILE MONOCLE BSTACK GRID FIBONACCI EQUAL */
 #define ATTACH_ASIDE    True         /* False means new window is master */
-#define FOLLOW_MOUSE    True         /* Focus the window the mouse just entered */
+#define FOLLOW_MOUSE    False        /* Focus the window the mouse just entered */
 #define FOLLOW_WINDOW   False        /* Follow the window when moved to a different desktop */
 #define CLICK_TO_FOCUS  True         /* Focus an unfocused window when clicked */
 #define BORDER_WIDTH    2            /* window border width */
@@ -57,13 +57,10 @@ static const char *voldowncmd[]         = { "mixerctl", "-w", "outputs.master-=1
 static const char *volupcmd[]           = { "mixerctl", "-w", "outputs.master+=12", NULL };
 static const char *volmutecmd[]         = { "mixerctl", "-w", "outputs.master=[192 0]", NULL };
 static const char *scrpcmd[]            = { "xterm", "-T", "scratchpad", NULL };
-static const char *scrotallcmd[]        = { "scrot", "'%m-%d-%Y-%R.png'", "-e", "'mv $f ~/Pictures/dumps'", NULL };
-static const char *scrotwindcmd[]       = { "scrot", "-ub", "'%m-%d-%Y-%R.png'", "-e", "'mv $f ~/Pictures/dumps'", NULL };
 static const char *mntcmd[]             = { "doas", "mount", "-t", "msdos", "/dev/sd0e /mnt", NULL };
 static const char *umntcmd[]            = { "doas", "umount", "-t", "msdos /mnt", NULL };
 static const char *skippycmd[]          = { "skippy-xd", "--toggle-window-picker", NULL };
 static const char *killbarcmd[]         = { "killall", "unibar", NULL };
-static const char *unibarcmd[]          = { "ubar", "|", "unibar", "uni", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -136,10 +133,7 @@ static key keys[] = {
     {  MOD1|CONTROL,     XK_m,          spawn,             {.com = mntcmd}},
     {  MOD1|CONTROL,     XK_u,          spawn,             {.com = umntcmd}},
     {  MOD1,             XK_Tab,        spawn,             {.com = skippycmd}},
-    {  MOD1|CONTROL,     XK_s,          spawn,             {.com = scrotallcmd}},
-    {  MOD1|CONTROL|SHIFT, XK_s,        spawn,             {.com = scrotwindcmd}},
     {  MOD1|CONTROL,     XK_u,          spawn,             {.com = killbarcmd}},
-    {  MOD1|CONTROL|SHIFT, XK_u,        spawn,             {.com = unibarcmd}},
     /* kill current window */
     {  MOD4|SHIFT,       XK_c,          killclient,        {NULL}},
 

@@ -72,7 +72,7 @@ ex ()
         alias mnt="doas mount -t msdos /dev/sd0e /mnt && cd /mnt"
         alias umnt="doas umount -t msdos /mnt && cd"
         alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
-        alias listfonts="convert -list font"
+        alias listfonts="convert -list font | bat -p"
 	
 	#pkgin
 	alias search="pkgin search"
@@ -102,6 +102,7 @@ ex ()
 	alias dumps="sxiv -t -p -b -r -g 1200x675 ~/Pictures/dumps &"
 	alias dumpscreen="cd ~/Pictures/dumps && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
         alias dumpwindow="cd ~/Pictures/dumps && scrot -ub -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
+	alias bar="ubar | unibar uni &"	
 	
 	#banana
 	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
