@@ -23,7 +23,7 @@ else
 fi
 
 # Date
-D="$(date '+%A,  %B %d  %I:%M')"
+D="$(date '+%A,  %b %d  %I:%M')"
 
 # WS
 AWS="$(xprop -root '\t$0' _NET_CURRENT_DESKTOP | cut -f 2)"
