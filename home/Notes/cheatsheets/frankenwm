@@ -28,3 +28,10 @@ Now you can do:
 
 $ make 
 $ make install
+
+# Recompiling
+
+$ make clean
+$ make makepatchsum
+$ make
+$ doas make install

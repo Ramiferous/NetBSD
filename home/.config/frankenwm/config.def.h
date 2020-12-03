@@ -55,12 +55,15 @@ static const char *lockcmd[]            = { "slock", NULL };
 static const char *shutdowncmd[]        = { "doas", "shutdown", "-p", "now", NULL };
 static const char *voldowncmd[]         = { "mixerctl", "-w", "outputs.master-=12", NULL };
 static const char *volupcmd[]           = { "mixerctl", "-w", "outputs.master+=12", NULL };
-static const char *volmutecmd[]         = { "mixerctl", "-w", "outputs.master=[192 0]", NULL };
+static const char *volmutecmd[]         = { "mixerctl", "-w", "outputs.master=[254 0]", NULL };
 static const char *scrpcmd[]            = { "xterm", "-T", "scratchpad", NULL };
 static const char *mntcmd[]             = { "doas", "mount", "-t", "msdos", "/dev/sd0e /mnt", NULL };
 static const char *umntcmd[]            = { "doas", "umount", "-t", "msdos /mnt", NULL };
 static const char *skippycmd[]          = { "skippy-xd", "--toggle-window-picker", NULL };
+static const char *scrotallcmd[]        = { "scrot", NULL };
+static const char *scrotwincmd[]        = { "scrot", "-ub", NULL };
 static const char *killbarcmd[]         = { "killall", "unibar", NULL };
+static const char *unibarcmd[]          = { "ubar", "|", "unibar", "uni", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
@@ -134,6 +137,9 @@ static key keys[] = {
     {  MOD1|CONTROL,     XK_u,          spawn,             {.com = umntcmd}},
     {  MOD1,             XK_Tab,        spawn,             {.com = skippycmd}},
     {  MOD1|CONTROL,     XK_u,          spawn,             {.com = killbarcmd}},
+    {  MOD1|CONTROL|SHIFT, XK_u,        spawn,             {.com = unibarcmd}},
+    {  MOD1|CONTROL,     XK_s,          spawn,             {.com = scrotallcmd}},
+    {  MOD1|CONTROL|SHIFT, XK_s,        spawn,             {.com = scrotwincmd}},
     /* kill current window */
     {  MOD4|SHIFT,       XK_c,          killclient,        {NULL}},
 
