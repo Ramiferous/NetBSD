@@ -1,0 +1,25 @@
+## To get your X230 to sleep/hibernate, forst enable powerd by adding the following line to /etc/rc.conf
+
+powerd=YES
+
+## Then edit /etc/powerd/scripts/lid_switch as follows:
+
+#!/bin/sh -
+case "${2}" in
+pressed)
+    wsconsctl -d -w backlight=0 >/dev/null
+    sysctl -w hw.acpi.sleep.state=3
+    exit 0
+    ;;
+
+released)
+    wsconsctl -d -w backlight=1 >/dev/null
+    sysctl -w hw.acpi.sleep.state=0
+    exit 0
+    ;;
+
+*)
+    logger -p warning "${0}: unsupported event ${2} on device ${1}" >&1
+    exit 1
+esac
+
