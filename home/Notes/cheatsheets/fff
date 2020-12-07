@@ -1,0 +1,16 @@
+## Some configuration is needed after installing fff
+
+Add this to ~/.profile
+
+# shfm & fff opener
+export SHFM_OPENER="/home/dave/.open.sh"
+export FFF_OPENER="/home/dave/.open.sh"
+
+# fff colours
+export FFF_COL2=9
+export FFF_COL5=6
+export FFF_W3M_XOFFSET=0
+export FFF_W3M_YOFFSET=0
+
+## remember to empty the trash every now and then. Run
+$ rm -rf ~/.local/share/fff/trash/

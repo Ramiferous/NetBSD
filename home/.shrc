@@ -115,7 +115,8 @@ ex ()
 	alias sdflogin="ssh ramiferous@tty.sdf.org"
 	alias anonradio="mpv --no-video http://anonradio.net:8000/anonradio"
 	alias email="hmail -A gmail"
-	
+	alias emptytrash="rm -rf ~/.local/share/fff/trash/*"	
+
 	# kb-management alias'
 	alias kbl="kb list"
 	alias kbe="kb edit"
