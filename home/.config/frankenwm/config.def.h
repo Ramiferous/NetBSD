@@ -28,8 +28,8 @@
 #define DEFAULT_DESKTOP 0            /* the desktop to focus on exec */
 #define MINWSZ          50           /* minimum window size in pixels */
 #define USELESSGAP      6            /* the size of the useless gap in pixels */
-#define GLOBALGAPS      True         /* use the same gap size on all desktops */
-#define MONOCLE_BORDERS True         /* display borders in monocle mode */
+#define GLOBALGAPS      False        /* use the same gap size on all desktops */
+#define MONOCLE_BORDERS False        /* display borders in monocle mode */
 #define INVERT          False        /* use alternative modes by default */
 #define AUTOCENTER      True         /* automatically center windows floating by default */
 #define OUTPUT_TITLE    False        /* output the title of the currently active window */
@@ -41,7 +41,9 @@
 /* Applicaton specific rules */
 static const AppRule rules[] = { \
     /* WM_NAME(STRING)  desktop  follow  float border_width */
-    { "Calculator",     -1,      False,  True, 2 },
+    { "sxiv",     -1,      False,  True,   2 },
+    { "mpv",      -1,      False,  True,   2 },
+    { "feh",      -1,      False,  True,   2 },
 };
 
 /* Helper for spawning shell commands, usually you don't edit this */
