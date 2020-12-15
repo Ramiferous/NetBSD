@@ -63,8 +63,8 @@ ex ()
 	alias fm="shfm"
 	alias pat="bat -p"
 	alias nat="bat -n"
-	alias lsd="exa -l && pwd"
-	alias lsa="exa -al && pwd"
+	alias lsd='exa -l && echo "`pwd` `ls | wc -l`"'
+	alias lsa='exa -al && echo "`pwd` `ls | wc -l`"'
 	alias reboot="doas reboot"
         alias bye="shutdown -p now"
         alias reload="xrdb -merge ~/.Xresources"
