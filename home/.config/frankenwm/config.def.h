@@ -65,7 +65,7 @@ static const char *skippycmd[]          = { "skippy-xd", "--toggle-window-picker
 static const char *scrotallcmd[]        = { "scrot", NULL };
 static const char *scrotwincmd[]        = { "scrot", "-ub", NULL };
 static const char *killbarcmd[]         = { "killall", "unibar", NULL };
-static const char *unibarcmd[]          = { "ubar", "|", "unibar", "uni", NULL };
+static const char *unibarcmd[]          = { "/home/dave/.config/frankenwm/ubar_run.sh", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
