@@ -41,9 +41,15 @@
 /* Applicaton specific rules */
 static const AppRule rules[] = { \
     /* WM_NAME(STRING)  desktop  follow  float border_width */
+<<<<<<< HEAD
     { "sxiv",     -1,      False,  True,   2 },
     { "mpv",      -1,      False,  True,   2 },
     { "feh",      -1,      False,  True,   2 },
+=======
+    { "mpv",     -1,      False,  True, 2 },
+    { "feh",     -1,      False,  True, 2 },
+    { "sxiv",    -1,      False,  True, 2 },
+>>>>>>> f67637e55dc44deaf3ae14d17deffc2a8a790826
 };
 
 /* Helper for spawning shell commands, usually you don't edit this */
@@ -65,7 +71,7 @@ static const char *skippycmd[]          = { "skippy-xd", "--toggle-window-picker
 static const char *scrotallcmd[]        = { "scrot", NULL };
 static const char *scrotwincmd[]        = { "scrot", "-ub", NULL };
 static const char *killbarcmd[]         = { "killall", "unibar", NULL };
-static const char *unibarcmd[]          = { "ubar", "|", "unibar", "uni", NULL };
+static const char *unibarcmd[]          = { "/home/dave/.config/frankenwm/ubar_run.sh", NULL };
 
 #define DESKTOPCHANGE(K,N) \
     {  MOD4,             K,              change_desktop, {.i = N}}, \
