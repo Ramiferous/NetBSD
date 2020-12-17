@@ -44,7 +44,7 @@ pinentry-program /usr/pkg/bin/pinentry-gtk-2
 For pinentry-dmenu:
 pinentry-program /usr/pkg/bin/pinentry-dmenu
 
-Download pinentry-dmenu and either install using the MakeFile or just simply place it in /usr/pkg/bi/ and make it executable. Then put pinentry-dmenu.conf in ~/.gnupg/
+Download pinentry-dmenu and either install using the MakeFile or just simply place it in /usr/pkg/bin/ and make it executable. Then put pinentry-dmenu.conf in ~/.gnupg/
 
 While your at it, also add this to gpg-agent.conf:
 allow-loopback-pinentry

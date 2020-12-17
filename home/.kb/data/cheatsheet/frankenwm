@@ -2,15 +2,15 @@
 
 First make a copy of config.def.h and do your edits
 
-$ cd ~/pkgsrcwm/frankenwm/
+$ cd ~/pkgsrc/wm/frankenwm/
 $ make
 
 Once its done, don't run make install 😉
 
-$ cd work
+$ cd work/FrankenWM-*
 $ mv config.def.h config.def.h.orig 
-$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wm/frankenwm/work/
-$ cd ..
+$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wm/frankenwm/work/FrankenWM-*/config.def.h
+$ cd ../..
 $ mkpatches
 $ make clean
 
@@ -27,7 +27,7 @@ $ make makepatchsum      */to generate the sha sum of your patch/*
 Now you can do:
 
 $ make 
-$ make install
+$ doas make install
 
 # Recompiling
 

@@ -13,4 +13,5 @@ export FFF_W3M_XOFFSET=0
 export FFF_W3M_YOFFSET=0
 
 ## remember to empty the trash every now and then. Run
-$ rm -rf ~/.local/share/fff/trash/
+$ rm -rf ~/.local/share/fff/trash/*
+$ rm -rf ~/.local/share/fff/trash/.*

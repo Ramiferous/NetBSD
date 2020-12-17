@@ -3,3 +3,6 @@ You'll then need to install pkg_alternatives.
 
 $ doas pkgin install py37-pip pkg_alternatives
 
+# maybe you will need the sqlite3 package as well?
+
+$ doas pkgin install py37-sqlite3

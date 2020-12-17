@@ -1,0 +1,14 @@
+## Install kb-manager using python pip
+
+# first make sure you have the correct sqlite3 package installed. 
+
+$ doas pkgin install py37-pip pkg_alternatives py37-sqlite3
+
+# Then you can install kb using pip
+
+$ pip install -U kb-manager
+
+# once installed, move your .kb folder into place
+
+$ cp -r ~/.git/NetBSD/home/.kb/ ~/
+

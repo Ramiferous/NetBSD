@@ -8,4 +8,8 @@ https://github.com/luakit/luakit/issues/256
 
 https://www.lexa.by/dotfiles/config/luakit/theme.lua.html
 
+# Bookmarks are stored in:
+
+~/.local/share/luakit/bookmarks.db
+
 ...I'll come back oneday
