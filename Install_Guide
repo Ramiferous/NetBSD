@@ -84,7 +84,7 @@ pkgin autoremove
 pkgin clean
 
 Then install essential sftware:
-$ doas pkgin install dbus fam tree doas vim gtar git-base feh fff (w3m-img) curl wget password-store gnupg2 dmenu mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
+$ doas pkgin install dbus fam tree doas vim gtar git-base feh fff (w3m-img) zoxide exa password-store gnupg2 dmenu mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
 
 
 Next copy some start up files to /etc/rc.d
@@ -226,8 +226,8 @@ Don't forget to copy also the spectrwm_lang.conf for your keyboard and probably 
 
 Before you login you'll need to edit /etc/hosts or you'll get xauth errors when starting WM with startx then fix /etc/hosts:
 
- ::1                     localhost HOSTNAME.local hackbox
- 127.0.0.1               localhost HOSTNAME.local hackbox
+ ::1                     localhost HOSTNAME.local HOSTNAME
+ 127.0.0.1               localhost HOSTNAME.local HOSTNAME
 
 NOTE: HOSTNAME should be the same as stated in /etc/rc.conf.
 "local" is the name I gave my DNS while installing.
