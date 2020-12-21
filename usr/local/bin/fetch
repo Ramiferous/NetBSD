@@ -6,7 +6,7 @@
 host="$(hostname)"
 os="$(uname -sm)"
 kernel="$(uname -v | awk '{print $2,$6,$7,$10}')"
-machine="$(sysctl -n machdep.dmi.system-product)"
+machine="$(sysctl -n machdep.dmi.system-version)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 packages="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 shell="$(basename "$SHELL")"
