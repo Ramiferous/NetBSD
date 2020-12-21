@@ -4,7 +4,7 @@ In your home directory,
 
 $ git config --global user.name "Ramiferous"
 $ git config --global user.email david.pfeiffer@protonmail.com
-$ git config --global core.editor nvim
+$ git config --global core.editor vim
 
 You should now have a .gitconfig file in your home directory.
 
