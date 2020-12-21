@@ -10,6 +10,7 @@ machine="$(sysctl -n machdep.dmi.system-product)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 packages="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 shell="$(basename "$SHELL")"
+battery="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
 
 ## UI DETECTION
 
@@ -36,7 +37,14 @@ else
 	uitype='UI'
 fi
 
-battery="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
+## COLOR BAR
+col() {
+	printf '  '
+	for i in 1 2 3 4 5 6; do
+		printf '\033[9%sm▅▅' "$i"
+	done
+	printf '\033[0m\n'
+}
 
 ## DEFINE COLORS
 
@@ -66,8 +74,10 @@ c1="${reset}${yellow}"              # second color
 cat <<EOF
         ${c1}OS ${ic}${os}${reset}
     ${c1}KERNEL ${ic}${kernel}${reset}
+   ${c1}MACHINE ${ic}${machine}${reset}
     ${c1}UPTIME ${ic}${uptime}${reset}
   ${c1}PACKAGES ${ic}${packages}${reset}
      ${c1}SHELL ${ic}${shell}${reset}
         ${c1}${uitype} ${ic}${ui}${reset}
+	${col}
 EOF
