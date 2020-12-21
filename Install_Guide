@@ -84,7 +84,7 @@ pkgin autoremove
 pkgin clean
 
 Then install essential sftware:
-$ doas pkgin install dbus fam tree doas vim gtar git-base feh fff (w3m-img) zoxide exa password-store gnupg2 dmenu mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd
+$ doas pkgin install dbus fam tree doas vim bat gtar git-base feh fff w3m-img zoxide exa password-store gnupg2 dmenu mozilla-rootcerts mozilla-rootcerts-openssl intel-microcode-netbsd pkg_alternatives py38-pip py38-sqlite3
 
 
 Next copy some start up files to /etc/rc.d
