@@ -38,21 +38,28 @@ _____________________________________________________________
 Unless you have an ethernet connection, or if you just cant be fucked connecting via ethernet cable, before you can configure the system and install pkgin of pkgsrc you need to up your wifi!
 
 Ctrl+Z should get you to a shell console to enable wpa_supplicant. typing exit of ctrl+D to get back to sysinst.
-First you need to activate iwn0 with 'ifconfig iwn0 up'
-Then configure your rc.conf to enable wpa_supplicant:
+First you need to activate iwn0 with 
+
+TAKE NOTE: changes you make to these files during installation wont stick and you'll have to edit/create them again after installing.
+
+# ifconfig iwn0 up
+
+Then configure your /etc/rc.conf to enable wpa_supplicant:
 
 wpa_supplicant=YES
 wpa_supplicant_flags="-B -D bsd -i iwn0 -c /etc/wpa_supplicant.conf"
 dhcpcd=YES
 dhcpcd_flags="-qM iwn0 -b"
 
-Next we need to edit /etc/wpa_supplicant.conf to include out ssid and password for our network
-Once that's done, start wpa_supplicant with '/etc/rc.d/wpa_supplicant start'
-
-To enable wpa_supplicant to start at boot we need to add /usr to critical_filesystems_local variable:
+To enable wpa_supplicant to start at boot we need to add /var & /usr to critical_filesystems_local variable:
 Add this new line at the beginning of rc.conf, just after rc_configured=YES:
 
 critical_filesystems_local="OPTIONAL:/var OPTIONAL:/usr"
+
+Next we need to edit /etc/wpa_supplicant.conf to include out ssid and password for our network
+Once that's done, start wpa_supplicant with 
+
+# /etc/rc.d/wpa_supplicant start
 
 Now exit back to sysinst with Ctrl+D and choose auto configure iwn0 and make note of the DNS and IP address. After installing and rebooting the system, login as root.
 
