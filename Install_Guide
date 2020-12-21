@@ -51,17 +51,19 @@ wpa_supplicant_flags="-B -D bsd -i iwn0 -c /etc/wpa_supplicant.conf"
 dhcpcd=YES
 dhcpcd_flags="-qM iwn0 -b"
 
-To enable wpa_supplicant to start at boot we need to add /var & /usr to critical_filesystems_local variable:
-Add this new line at the beginning of rc.conf, just after rc_configured=YES:
-
-critical_filesystems_local="OPTIONAL:/var OPTIONAL:/usr"
-
 Next we need to edit /etc/wpa_supplicant.conf to include out ssid and password for our network
 Once that's done, start wpa_supplicant with 
 
 # /etc/rc.d/wpa_supplicant start
 
 Now exit back to sysinst with Ctrl+D and choose auto configure iwn0 and make note of the DNS and IP address. After installing and rebooting the system, login as root.
+
+Don't waste your tie with the next bit until you've completed the install:
+
+To enable wpa_supplicant to start at boot we need to add /var & /usr to critical_filesystems_local variable:
+Add this new line at the beginning of rc.conf, just after rc_configured=YES:
+
+critical_filesystems_local="OPTIONAL:/var OPTIONAL:/usr"
 
 NOTE: to avoid DHCPv6 errors add 'noipv6rs' to /etc/dhcpcd.conf
 
@@ -106,6 +108,7 @@ _____________________________________________________________
                        SETUP PKGSRC
 _____________________________________________________________
 
+** This is just incase you chose not to set up pkgsrc during the install **
 
 		     Preparing pkgsrc
 
