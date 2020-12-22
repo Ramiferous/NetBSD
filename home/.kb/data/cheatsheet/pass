@@ -1,4 +1,8 @@
 ## Set up pass
+
+First make sure you have pinentry-curses enabled in your gpg-agent.conf (or deleted it to start blank)
+Then, from tty:
+
 $ gpg2 --full-gen-key
 Choose default
 Choose passphrase
@@ -10,6 +14,14 @@ The key will be on the 'sec' line, after the first forward slash.
 
 Then run:
 $pass init "your gpg2 key"
+
+# To fix the " gpg: WARNING: unsafe permissions on homedir '/home/path/to/user/.gnupg' " error
+# Make sure that the .gnupg directory and its contents is accessibile by your user.
+$ chown -R $(whoami) ~/.gnupg/
+
+# Also correct the permissions and access rights on the directory
+$ chmod 600 ~/.gnupg/*
+$ chmod 700 ~/.gnupg
 
 Usage:
 
