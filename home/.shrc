@@ -67,11 +67,11 @@ ex ()
 	alias lsd='exa -l && echo "`pwd` `ls | wc -l`"'
 	alias lsa='exa -al && echo "`pwd` `ls -a | wc -l`"'
 	alias reboot="doas reboot"
-        alias bye="shutdown -p now"
+        alias goodbye="shutdown -p now"
         alias reload="xrdb -merge ~/.Xresources"
         alias addwifi="doas vim /etc/wpa_supplicant.conf"
-        alias mnt="doas mount -t msdos /dev/sd0e /mnt && cd /mnt"
-        alias umnt="doas umount -t msdos /mnt && cd"
+        alias mnt="doas mount -t msdos /dev/sd0e /home/$USER/Media && cd /home/$USER/Media"
+        alias umnt="doas umount -t msdos /home/$USER/Media && cd"
         alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
         alias listfonts="convert -list font | bat -p"
 	
