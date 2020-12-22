@@ -26,6 +26,14 @@ machine="$(sysctl -n machdep.dmi.system-version)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 packages="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 shell="$(basename "$SHELL")"
+battery="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
+charge="$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')"
+if [ "${charge}" = "TRUE" ]; then
+	state='Charging'
+else
+	state='Discharging'
+fi
+
 
 ## UI DETECTION
 
@@ -51,8 +59,6 @@ else
 	ui='unknown'
 	uitype='UI'
 fi
-
-battery="$(envstat -s acpibat0:charge | awk 'FNR==3 {print $6}' | tr -d '()')"
 
 ## DEFINE COLORS
 
@@ -89,6 +95,6 @@ ${c0}      \\\                   ${c1}UPTIME ${ic}${uptime}${reset}
 ${c0}       \\\                ${c1}PACKAGES ${ic}${packages}${reset}
 ${c0}        \\\                  ${c1}SHELL ${ic}${shell}${reset}
 ${c0}         \\\                    ${c1}${uitype} ${ic}${ui}${reset}
-${c0}          \\\              ${c1}BATTERY ${ic}${battery}${reset}
+${c0}          \\\              ${c1}BATTERY ${ic}${battery} ${state}${reset}
 
 EOF
