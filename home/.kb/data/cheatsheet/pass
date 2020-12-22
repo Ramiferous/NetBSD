@@ -25,8 +25,8 @@ $ chmod 700 ~/.gnupg
 
 Usage:
 
-Go to lastpass.com and sign in. Next click on your username in the top-right
-corner. In the drop-down meny that appears, click "Export". After filling in
+Go to lastpass.com and sign in. Next click on "More Options" bottom left hand
+corner. Then click "Advanced" and then "Export". After filling in
 your details again, copy the text and save it somewhere on your disk. Make sure
 you copy the whole thing, and resist the temptation to "Save Page As" - the
 script doesn't like HTML.
