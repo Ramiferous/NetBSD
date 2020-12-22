@@ -18,7 +18,7 @@ password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
-	xterm -e pass show -c "$password" 2>/dev/null
+	pass show -c "$password" 2>/dev/null
 else
 	pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } |
 		xdotool type --clearmodifiers --file -

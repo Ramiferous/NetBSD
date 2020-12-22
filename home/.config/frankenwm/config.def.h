@@ -41,15 +41,12 @@
 /* Applicaton specific rules */
 static const AppRule rules[] = { \
     /* WM_NAME(STRING)  desktop  follow  float border_width */
-<<<<<<< HEAD
     { "sxiv",     -1,      False,  True,   2 },
     { "mpv",      -1,      False,  True,   2 },
     { "feh",      -1,      False,  True,   2 },
-=======
-    { "mpv",     -1,      False,  True, 2 },
-    { "feh",     -1,      False,  True, 2 },
-    { "sxiv",    -1,      False,  True, 2 },
->>>>>>> f67637e55dc44deaf3ae14d17deffc2a8a790826
+    { "mpv",      -1,      False,  True,   2 },
+    { "feh",      -1,      False,  True,   2 },
+    { "sxiv",     -1,      False,  True,   2 },
 };
 
 /* Helper for spawning shell commands, usually you don't edit this */
