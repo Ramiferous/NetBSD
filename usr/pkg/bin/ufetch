@@ -54,14 +54,21 @@ fi
 
 ## COLOR BAR
 col=$(
+<<<<<<< HEAD
         printf ''
+=======
+	printf ''
+>>>>>>> fa183bcc07d8736a1c87bf695cc7ba0258857646
 	for i in 1 2 3 4 5 6; do
 		printf '\033[9%sm▅▅' "$i"
 	done
 	printf '\033[0m\n'
 )
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa183bcc07d8736a1c87bf695cc7ba0258857646
 ## DEFINE COLORS
 
 # probably don't change these
