@@ -7,14 +7,6 @@
 # Permission to use, copy, modify, and distribute this software for any
 # purpose with or without fee is hereby granted, provided that the above
 # copyright notice and this permission notice appear in all copies.
-#
-# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ## INFO
 
@@ -60,6 +52,16 @@ else
 	uitype='UI'
 fi
 
+## COLOR BAR
+col=$(
+        printf ''
+	for i in 1 2 3 4 5 6; do
+		printf '\033[9%sm▅▅' "$i"
+	done
+	printf '\033[0m\n'
+)
+
+
 ## DEFINE COLORS
 
 # probably don't change these
@@ -96,5 +98,6 @@ ${c0}       \\\                ${c1}PACKAGES ${ic}${packages}${reset}
 ${c0}        \\\                  ${c1}SHELL ${ic}${shell}${reset}
 ${c0}         \\\                    ${c1}${uitype} ${ic}${ui}${reset}
 ${c0}          \\\              ${c1}BATTERY ${ic}${battery} ${state}${reset}
+${c0}           \\\              ${c1}COLORS ${col}${reset}
 
 EOF
