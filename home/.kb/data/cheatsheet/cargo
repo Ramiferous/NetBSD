@@ -1,0 +1,10 @@
+# To build using cargo
+
+$ cd ~/path/to/source
+
+$ cargo build
+
+$ cd
+
+$ cargo install --path ~/path/to/build/dir
+

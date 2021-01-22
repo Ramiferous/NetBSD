@@ -19,11 +19,7 @@ $pass init "your gpg2 key"
 # Make sure that the .gnupg directory and its contents is accessibile by your user.
 $ chown -R $(whoami) ~/.gnupg/
 
-# Also correct the permissions and access rights on the directory
-$ chmod 600 ~/.gnupg/*
-$ chmod 700 ~/.gnupg
-
-Usage:
+## Usage:
 
 Go to lastpass.com and sign in. Next click on "More Options" bottom left hand
 corner. Then click "Advanced" and then "Export". After filling in
@@ -42,22 +38,24 @@ $ doas pkgin install ruby
 You may find that due to some passwords being in seperate/categorised folders that passmenu is slow af and doesn't display correctly. Just go into your .passwordstore folder and move all the .gpg's into the main folder.
 Once it's all set up you can uninstall ruby if you want.
 
-Set up PASSMENU: 
+## Set up PASSMENU: 
 https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu
 Just put this script in ~/.config/spectrwm/ and make it executable.
 
 ## Pinentry program
 Set this in ~/.gnupg/gpg-agent.conf
 
-For gtk2:
+with:
+
+# gtk2:
 pinentry-program /usr/pkg/bin/pinentry-gtk-2
 (remember that you'll have to install it first)
 
-For pinentry-dmenu:
+# pinentry-dmenu:
 pinentry-program /usr/pkg/bin/pinentry-dmenu
 
-Download pinentry-dmenu and either install using the MakeFile or just simply place it in /usr/pkg/bin/ and make it executable. Then put pinentry-dmenu.conf in ~/.gnupg/
+Install pinentry-dmenu from pkgsrc/wip, then put pinentry-dmenu.conf in ~/.gnupg/
 
-While your at it, also add this to gpg-agent.conf:
+# While your at it, also add this to gpg-agent.conf:
 allow-loopback-pinentry
 
