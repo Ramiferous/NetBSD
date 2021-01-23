@@ -19,11 +19,30 @@ export ENV=$HOME/.shrc
 export SHFM_OPENER="/home/dave/.open.sh"
 export FFF_OPENER="/home/dave/.open.sh"
 
-# fff colours
-export FFF_COL2=9
-export FFF_COL5=6
+# fff
+export FFF_FILE_FORMAT="%f"
+export FFF_MARK_FORMAT="  %f*"
+export FFF_TRASH=~/.local/share/fff/trash
 export FFF_W3M_XOFFSET=0
 export FFF_W3M_YOFFSET=0
+
+# Show/Hide hidden files on open (Off by default)
+export FFF_HIDDEN=1
+
+# dir color
+export FFF_COL1=2
+# status bg color
+export FFF_COL2=9
+# selection color
+export FFF_COL3=1
+# cursor color
+export FFF_COL4=3
+# status fg color
+export FFF_COL5=7
+
+# use fd with fzf
+export FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --color=always' 
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border --ansi'
 
 # Hairloom-mailx
 export NAILRC=$HOME/.nailrc

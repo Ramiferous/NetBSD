@@ -108,6 +108,7 @@ ex ()
 	#banana
 	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
 	alias wttr="curl wttr.in/Melbourne?format=3"
+	alias moon="curl wttr.in/Moon"
 	alias charge="~/.charge.sh"
 	alias chat="~/Downloads/birch/./birch -u ramiferous"
         alias todo="cat ~/Documents/todo/todo.txt"
@@ -116,6 +117,7 @@ ex ()
 	alias sdflogin="ssh ramiferous@tty.sdf.org"
 	alias anonradio="mpv --no-video http://anonradio.net:8000/anonradio"
 	alias email="hmail -A gmail"
+	alias trash="cd ~/.local/share/fff/trash/ && exa -al && pwd" 
 	alias emptytrash="rm -rf ~/.local/share/fff/trash/*"	
 	alias reddsave="reddsaver -e /home/dave/.cargo/reddsaver/reddsaver.env -d /home/dave//Pictures/reddit/"
 
