@@ -62,8 +62,8 @@ ex ()
 	alias ....="cd ../../../.. && pwd"
 	alias fd="fdfind"
 	alias fm="shfm"
-	alias pat="bat -p --theme gruvbox-white"
-	alias nat="bat -n --theme gruvbow-white"
+	alias pat="bat -p --wrap character --theme gruvbox-white"
+	alias nat="bat -n --wrap character --theme gruvbow-white"
 	alias lsd='exa -l && echo "`pwd` `ls | wc -l`"'
 	alias lsa='exa -al && echo "`pwd` `ls -a | wc -l`"'
 	alias dim="intel_backlight 20"
