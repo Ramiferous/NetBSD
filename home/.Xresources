@@ -45,12 +45,15 @@ XTerm*termName: xterm-256color
 XTerm*utf8: 1
 XTerm*locale: true
 XTerm*loginShell: true
-XTerm*faceName: xft:Pragmata:pixelsize=10
-!XTerm*faceSize: 9
-XTerm*cursorUnderLine: true
+XTerm*faceName: xft:InputMonoCondensed:style=Regular:pixelsize=14
+XTerm*cursorUnderLine: false
 XTerm*cursorBlink: false
 XTerm*internalBorder: 7
 XTerm*SaveLines: 4500
+XTerm*scrollBar: true
+XTerm*rightScrollBar: true
+XTerm*scrollBar.minimumThumb: 50
+XTerm*scrollbar.width: 10
 XTerm*cutNewLine: false
 XTerm*cutToBeginningOfLine: false
 ! XTerm*charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
@@ -62,29 +65,75 @@ XTerm*vt100.translations: #override \
     Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
 
 ! Colors
-*background: #1C1C1C
-*foreground: blanchedalmond
+
+! Dark !
+!*background: #1C1C1C
+!*foreground: blanchedalmond
 !black
-*color0:     #AF875F
-*color8:     #AF875F
+!*color0:     #AF875F
+!*color8:     #AF875F
 !red
-*color1:     #E84F4F
-*color9:     #D23D3D
+!*color1:     #E84F4F
+!*color9:     #D23D3D
 !green
-*color2:     #B8D68C
-*color10:    #A0CF5D
+!*color2:     #B8D68C
+!*color10:    #A0CF5D
 !yellow
-*color3:     #E1AA5D
-*color11:    #F39D21
+!*color3:     #E1AA5D
+!*color11:    #F39D21
 !blue
-*color4:     #7DC1CF
-*color12:    #4E9FB1
+!*color4:     #7DC1CF
+!*color12:    #4E9FB1
 !magenta
-*color5:     #9B64FB
-*color13:    #8542FF
+!*color5:     #9B64FB
+!*color13:    #8542FF
 !cyan
-*color6:     #6D878D
-*color14:    #42717B
+!*color6:     #6D878D
+!*color14:    #42717B
 !white
 *color7:     #6D6D6D
 *color15:    #EFF0F1
+
+
+! Light !
+#define BG			#d9d5ba
+#define FG			#424242
+*background:			BG
+*foreground:			FG
+
+*scrollbar.background:		BG
+*scrollbar.foreground:		FG
+*borderColor:			BG
+
+! black
+*color0:			FG
+*color8:			#333333
+
+! red
+*color1:			#825b69
+*color9:			#bda0aa
+
+! green
+*color2:			#69825b
+*color10:			#aabda0
+
+! yellow
+*color3:			#82755b
+*color11:			#bdb3a0
+
+! blue
+*color4:			#5b6982
+*color12:			#a0aabd
+
+! magenta
+*color5:			#755b82
+*color13:			#b3a0bd
+
+! cyan
+*color6:			#5b8275
+*color14:			#a0bdb3
+
+! white (gray)
+!*color7:			#d9d7cc
+!*color15:			#e5e5e5
+

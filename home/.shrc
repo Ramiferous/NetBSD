@@ -55,17 +55,18 @@ ex ()
 	#sysutils
 	alias c="clear"
 	alias v="vim"
-	alias dv="doas vim"
+	alias pv="please vim"
 	alias .="cd .. && pwd"
 	alias ..="cd ../.. && pwd"
 	alias ...="cd ../../.. && pwd"
 	alias ....="cd ../../../.. && pwd"
 	alias fd="fdfind"
 	alias fm="shfm"
-	alias pat="bat -p"
-	alias nat="bat -n"
+	alias pat="bat -p --theme gruvbox-white"
+	alias nat="bat -n --theme gruvbow-white"
 	alias lsd='exa -l && echo "`pwd` `ls | wc -l`"'
 	alias lsa='exa -al && echo "`pwd` `ls -a | wc -l`"'
+	alias dim="intel_backlight 20"
 	alias reboot="please reboot"
         alias goodbye="shutdown -p now"
         alias reload="xrdb -merge ~/.Xresources"
@@ -74,6 +75,7 @@ ex ()
         alias umnt="please umount -t msdos /home/$USER/Media && cd"
         alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
         alias listfonts="convert -list font | bat -p"
+	alias h="history | cut -c 3- | sort | uniq | fzf | tr -d '\n' | xclip -selection c"
 	
 	#pkgin
 	alias search="pkgin search"
@@ -122,7 +124,7 @@ ex ()
 	alias reddsave="reddsaver -e /home/dave/.cargo/reddsaver/reddsaver.env -d /home/dave//Pictures/reddit/"
 
 	# kb-management alias'
-	alias kbl="kb list"
+	alias kbl="kb list -n"
 	alias kbe="kb edit"
 	alias kba="kb add"
 	alias kbv="kb view"
