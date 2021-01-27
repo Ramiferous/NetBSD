@@ -19,15 +19,15 @@
 #define FOLLOW_MOUSE    False        /* Focus the window the mouse just entered */
 #define FOLLOW_WINDOW   False        /* Follow the window when moved to a different desktop */
 #define CLICK_TO_FOCUS  True         /* Focus an unfocused window when clicked */
-#define BORDER_WIDTH    2            /* window border width */
+#define BORDER_WIDTH    1            /* window border width */
 #define SCRATCH_WIDTH   1            /* scratch window border width, 0 to disable */
-#define FOCUS           "#e1aa5d"    /* focused window border color   */
-#define UNFOCUS         "#262626"    /* unfocused window border color */
+#define FOCUS           "#000000"    /* focused window border color   */
+#define UNFOCUS         "#888888"    /* unfocused window border color */
 #define SCRATCH         "#c34646"    /* scratchpad border color */
 #define DESKTOPS        6            /* number of desktops - edit DESKTOPCHANGE keys to suit */
 #define DEFAULT_DESKTOP 0            /* the desktop to focus on exec */
 #define MINWSZ          50           /* minimum window size in pixels */
-#define USELESSGAP      6            /* the size of the useless gap in pixels */
+#define USELESSGAP      10           /* the size of the useless gap in pixels */
 #define GLOBALGAPS      False        /* use the same gap size on all desktops */
 #define MONOCLE_BORDERS False        /* display borders in monocle mode */
 #define INVERT          False        /* use alternative modes by default */
@@ -54,17 +54,16 @@ static const AppRule rules[] = { \
 
 /* Commands */
 static const char *termcmd[]            = { "xterm", NULL };
-static const char *menucmd[]            = { "dmenu_run", "-fn", "xft:PragmataPro:pixelsize=10:antialias=true", "-nb", "#1c1c1c", "-nf", "#ffebcd", "-sb", "#e1aa5d", "-sf", "#000000", NULL };
-static const char *passmenucmd[]        = { "/home/dave/.config/spectrwm/passmenu.sh", "-fn", "xft:PragmataPro:pixelsize=10:antialias=true", "-nb", "#1c1c1c", "-nf", "#ffebcd", "-sb", "#e1aa5d", "-sf", "#000000", NULL };
+static const char *menucmd[]            = { "dmenu_run", "-fn", "InputMonoCondensed:style=Regular:pixelsize=14:antialias=true", "-nb", "#000000", "-nf", "#fffff0", "-sb", "#84998f", "-sf", "#000000", NULL };
+static const char *passmenucmd[]        = { "/home/dave/.config/spectrwm/passmenu.sh", "-fn", "InputMonoCondensed:style=Regular:pixelsize=14:antialias=true", "-nb", "#000000", "-nf", "#fffff0", "-sb", "#84998f", "-sf", "#000000", NULL };
 static const char *lockcmd[]            = { "slock", NULL };
-static const char *shutdowncmd[]        = { "doas", "shutdown", "-p", "now", NULL };
+static const char *shutdowncmd[]        = { "please", "shutdown", "-p", "now", NULL };
 static const char *voldowncmd[]         = { "mixerctl", "-w", "outputs.master-=12", NULL };
 static const char *volupcmd[]           = { "mixerctl", "-w", "outputs.master+=12", NULL };
 static const char *volmutecmd[]         = { "mixerctl", "-w", "outputs.master=[254 0]", NULL };
 static const char *scrpcmd[]            = { "xterm", "-T", "scratchpad", NULL };
-static const char *mntcmd[]             = { "doas", "mount", "-t", "msdos", "/dev/sd0e /mnt", NULL };
-static const char *umntcmd[]            = { "doas", "umount", "-t", "msdos /mnt", NULL };
-static const char *skippycmd[]          = { "skippy-xd", "--toggle-window-picker", NULL };
+static const char *mntcmd[]             = { "please", "mount", "-t", "msdos", "/dev/sd0e /mnt", NULL };
+static const char *umntcmd[]            = { "please", "umount", "-t", "msdos /mnt", NULL };
 static const char *scrotallcmd[]        = { "scrot", NULL };
 static const char *scrotwincmd[]        = { "scrot", "-ub", NULL };
 static const char *killbarcmd[]         = { "killall", "unibar", NULL };
@@ -129,7 +128,7 @@ static key keys[] = {
     {  MOD4|SHIFT,       XK_z,          rotate_mode,       {.i = -1}},
     {  MOD4|SHIFT,       XK_x,          rotate_mode,       {.i = +1}},
 
-    /* spawn terminal, dmenu, w/e you want to */
+    /* custom keybindings */
     {  MOD4,             XK_Return,     spawn,             {.com = termcmd}},
     {  MOD4,             XK_d,          spawn,             {.com = menucmd}},
     {  MOD4|SHIFT,       XK_p,          spawn,             {.com = passmenucmd}},
@@ -140,7 +139,6 @@ static key keys[] = {
     {  0,                0x1008ff12,    spawn,             {.com = volmutecmd}},
     {  MOD1|CONTROL,     XK_m,          spawn,             {.com = mntcmd}},
     {  MOD1|CONTROL,     XK_u,          spawn,             {.com = umntcmd}},
-    {  MOD1,             XK_Tab,        spawn,             {.com = skippycmd}},
     {  MOD1|CONTROL,     XK_u,          spawn,             {.com = killbarcmd}},
     {  MOD1|CONTROL|SHIFT, XK_u,        spawn,             {.com = unibarcmd}},
     {  MOD1|CONTROL,     XK_s,          spawn,             {.com = scrotallcmd}},
