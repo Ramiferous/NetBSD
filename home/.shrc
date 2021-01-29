@@ -1,16 +1,7 @@
 # .shrc file for sh(1).
 
-#if [ -f /etc/shrc ]; then
-#	. /etc/shrc
-#fi
-
 case "$-" in *i*)
-	if /bin/test -z "${HOST}"; then
-		HOST="$(hostname)"
-	fi
 	PS1="$PS1"
-	#PS1="\${PWD##*/} \$ "
-	#PS1="${USER}@${HOST%%.*} $PS1"
 	set -o emacs
 
 # Run 'fff' with 'f' or whatever you decide to name the function.
@@ -75,7 +66,7 @@ ex ()
         alias umnt="please umount -t msdos /home/$USER/Media && cd"
         alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
         alias listfonts="convert -list font | bat -p"
-	alias h="history | cut -c 4- | sort | uniq | fzf | tr -d '\n' | xclip -selection c"
+	alias h='history | awk "{ sub(/^[[:blank:]]*[0-9]+[[:blank:]]+/, \"\"); print }" | fzf | tr -d \\n | xclip -selection c'
 	
 	#pkgin
 	alias search="pkgin search"

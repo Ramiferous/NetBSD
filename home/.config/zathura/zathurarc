@@ -1,6 +1,6 @@
 set font			"PragmataPro 9"
-set default-fg 			"blanchedalmond"
-set default-bg 			"#1c1c1c"
+set default-fg 			"#424242"
+set default-bg 			"#d9d5ba"
 
 set completion-bg		"#3b4252"
 set completion-fg		"#eceff4"
@@ -9,33 +9,33 @@ set completion-highlight-fg	"#eceff4"
 set completion-group-bg		"#3b4252"
 set completion-group-fg		"#88c0d0"
 
-set statusbar-fg		"blanchedalmond"
-set statusbar-bg		"#1c1c1c"
+set statusbar-fg		"#424242"
+set statusbar-bg		"#d9d5ba"
 set statusbar-h-padding		10
 set statusbar-v-padding		10
 
-set notification-bg		"#1c1c1c"
-set notification-fg		"blanchedalmond"
-set notification-error-bg	"#1c1c1c"
+set notification-bg		"#d9d5ba"
+set notification-fg		"#424242"
+set notification-error-bg	"#d9d5ba"
 set notification-error-fg	"#bf616a"
 set notification-warning-bg	"#1c1c1c"
 set notification-warning-fg	"#ebcb8b"
 set selection-notification	"true"
 
-set inputbar-fg			"blanchedalmond"
-set inputbar-bg 		"#1c1c1c"
+set inputbar-fg			"#424242"
+set inputbar-bg 		"#d9d5ba"
 
 set recolor			"true"
-set recolor-lightcolor		"#1c1c1c"
-set recolor-darkcolor		"blanchedalmond"
+set recolor-lightcolor		"#d9d5ba"
+set recolor-darkcolor		"#424242"
 
-set index-fg			"blanchedalmond"
-set index-bg			"#1c1c1c"
-set index-active-fg		"blanchedalmond"
-set index-active-bg		"#1c1c1c"
+set index-fg			"#42424"
+set index-bg			"#d9d5ba"
+set index-active-fg		"#424242"
+set index-active-bg		"#d9d5ba"
 
-set render-loading-bg		"#1c1c1c"
-set render-loading-fg		"blanchedalmond"
+set render-loading-bg		"#d9d5ba"
+set render-loading-fg		"#424242"
 
 set highlight-color		"#88c0d0"
 set highlight-active-color	"#5e81ac"
