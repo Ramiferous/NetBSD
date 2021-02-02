@@ -1,0 +1,21 @@
+## Intel_backlight
+$ pkginstall intel_backlight
+
+# Make sure the binary is setuid
+$ please chmod u+s /usr/pkg/sbin/intel_backlight
+
+# Run from ~/.xinitrc
+intel_backlight 20
+
+# Conflicts may arise ig you have securelevel=1 set in your /etc/rc.conf so comment that line out or set it to 0
+
+# Create /etc/powerd/actions
+# Then, add 2 shell scripts in it (owner root:wheel; mode 755) called brighness-up and brightness-down. Put intel_backlight incr/decr in those scripts.
+
+#!/bin/sh
+/usr/pkg/sbin/intel_backlight incr
+
+#!/bin/sh
+/usr/pkg/sbin/intel_backlight decr
+
+# Now the F keys should work

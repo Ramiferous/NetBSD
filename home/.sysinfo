@@ -1,0 +1,78 @@
+#! /usr/bin/env bash
+
+# Info
+HOSTNAME=`uname -n`
+ROOT=`df -h | grep wd0a | awk '{print "Size: "$2"  Used: "$3"  Free: "$4;}' | tr -d '\n'`
+MACHINE=`sysctl -n machdep.dmi.system-version`
+OS=`uname -sm`
+KERNEL=`uname -v | awk '{print $2,$6,$7,$10}'`
+UPTIME=`uptime`
+CPU=`cat /proc/cpuinfo | grep 'model name' | uniq | sed 's/^.*: //'`
+SHELL=`basename "$SHELL"`
+PKGS=`pkg_info | wc -l | sed -e 's/^[ \t]*//'`
+SWAP=`free -m | tail -n 1 | awk '{print $3" MB";}'`
+MEMORY1=`free -m | grep Mem | awk '{print $2" MB";}'`
+MEMORY2=`free -m | grep Mem | awk '{print $3" MB";}'`
+LOAD1=`cat /proc/loadavg | awk {'print $1'}`
+LOAD5=`cat /proc/loadavg | awk {'print $2'}`
+LOAD15=`cat /proc/loadavg | awk {'print $3'}`
+BATTERY="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')%"
+CHARGE="$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')"
+if [ "${charge}" = "TRUE" ]; then
+    STATE='Charging'
+else
+    STATE='Discharging'
+fi
+
+## COLOR BAR
+col=$(
+        printf ''
+    for i in 1 2 3 4 5 6; do
+        printf '\033[9%sm▅▅' "$i"
+    done
+    printf '\033[0m\n'
+)
+
+# Define Colours
+if [ -x `command -v tput` ]; then
+    bold=`tput bold`
+    black=`tput setaf 0`
+    red=`tput setaf 1`
+    green=`tput setaf 2`
+    yellow=`tput setaf 3`
+    blue=`tput setaf 4`
+    magenta=`tput setaf 5`
+    cyan=`tput setaf 6`
+    white=`tput setaf 7`
+    reset=`tput sgr0`
+fi
+
+bl="${reset}${bold}${blue}"
+wt="${reset}${white}"
+yl="${reset}${yellow}"
+rd="${reset}${red}"
+mg="${reset}${magenta}"
+bk="${reset}${black}"
+gr="${reset}${green}"
+cy="${reset}${cyan}"
+
+echo $""
+echo $"                            ✭ SYSTEM INFORMATION ✭"
+echo $"${bk}        _..._              ═══════════════════════════════════════════════"
+echo $"${bk}      .'     '.      _      ${yl}➭ OS..................:" $OS
+echo $"${bk}     /    .----\   _/ \     ${yl}➭ Kernel..............:" $KERNEL
+echo $"${bk}   .-|   /:.   |  |   |     ${yl}➭ Hostname............:" $HOSTNAME
+echo $"${bk}   |  \  |:.   /.-'-./      ${yl}➭ Shell...............:" $SHELL
+echo $"${bk}   | .-'-;:__.'    =/       ${yl}➭ Packages............:" $PKGS
+echo $"${bk}   .'=  *=|${bl}NASA${bk} _.='       ═══════════════════════════════════════════════"
+echo $"${bk}  /  _ .  |    ;            ${yl}➭ Uptime..............:" $UPTIME
+echo $"${bk} ;-.-'|    \   |            ${yl}➭ CPU.................:" $CPU
+echo $"${bk}/   | \    _\  _\           ${yl}➭ CPU usage...........:" $LOAD1, $LOAD5, $LOAD15 '(1, 5, 15 min)'
+echo $"${bk}\__/'._;.  ==' ==\          ${yl}➭ Memory used.........:" $MEMORY1 / $MEMORY2
+echo $"${bk}         \    \   |         ${yl}➭ Swap in use.........:" $SWAP
+echo $"${bk}         /    /   /        ═══════════════════════════════════════════════"
+echo $"${bk}         /-._/-._/          "
+echo $"${bk}         \    \  \          "
+echo $"${bk}          '-._/._/          "
+echo $"${bk}                            "
+echo $""
