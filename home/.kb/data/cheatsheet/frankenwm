@@ -3,34 +3,36 @@
 Clone Pin's git repo, and move the Frankenwm directory into ~/pkgsrc/wip/
 This way, your config wont get overidden each time you upgrade.
 
-# Intallation
+# First make a copy of config.def.h and do your edits, then:
+# Clone, copy, move, build, patch, install...
 
-First make a copy of config.def.h and do your edits
+$ clone https://codeberg.org/pin/frankenwm-netbsd
 
-$ cd ~/pkgsrc/wm/frankenwm/
+$ cp frankenwm-netbsd/frankenwm-git/ ~/pkgsrc/wip/
+
+$ cd ~/pkgsrc/wip/frankenwm-git/
+
 $ make
 
-Once its done, don't run make install 😉
-
 $ cd work/FrankenWM/
-$ mv config.def.h config.def.h.orig 
-$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wm/frankenwm/work/FrankenWM/config.def.h
-$ cd ../..
-$ mkpatches
-$ make clean
 
-Then run:
+$ mv config.def.h config.def.h.orig 
+
+$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wip/frankenwm/work/FrankenWM/config.def.h
+
+$ cd ../..
+
+$ mkpatches
+
+$ make clean
 
 $rm patches/patch-config.def.h.orig 
 
-Then add a comment to patch-config.def.h inside the patches directory. Something along the lines of "personal mods" etc.
+# At this point it's a good idea to add a comment to patch-config.def.h inside the patches directory. Something along the lines of "personal mods" etc.
 
-Then run:
- 
-$ make makepatchsum      */to generate the sha sum of your patch/*
-
-Now you can do:
+$ make makepatchsum     
 
 $ make 
-$ doas make install
+
+$ please make install
 

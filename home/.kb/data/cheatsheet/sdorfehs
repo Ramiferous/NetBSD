@@ -1,0 +1,35 @@
+# sdorfehs wm based on ratpoisen
+
+# First make copy of config.def.h and do your edits, then:
+# Clone, copy, move, build, patch, install...
+
+$ clone https://github.com/jcs/sdorfehs
+
+$ cp sdorfehs/ ~/pkgsrc/wip/
+
+$ cd ~/pkgsrc/wip/sdorfehs/
+
+$ make
+
+$ cd work/sdorfehs/
+
+$ mv config.def.h config.def.h.orig 
+
+$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wip/sdorfehs/work/sdorfehs/config.def.h
+
+$ cd ../..
+
+$ mkpatches
+
+$ make clean
+
+$rm patches/patch-config.def.h.orig 
+
+# At this point it's a good idea to add a comment to patch-config.def.h inside the patches directory. Something along the lines of "personal mods" etc.
+
+$ make makepatchsum
+
+$ make 
+
+$ doas make install
+
