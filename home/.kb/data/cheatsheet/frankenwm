@@ -1,4 +1,9 @@
-# FrankenWM - ~/pkgsrc/wm/frankenwm
+# FrankenWM - ~/pkgsrc/wip/frankenwm
+
+Clone Pin's git repo, and move the Frankenwm directory into ~/pkgsrc/wip/
+This way, your config wont get overidden each time you upgrade.
+
+# Intallation
 
 First make a copy of config.def.h and do your edits
 
@@ -7,9 +12,9 @@ $ make
 
 Once its done, don't run make install 😉
 
-$ cd work/FrankenWM-*
+$ cd work/FrankenWM/
 $ mv config.def.h config.def.h.orig 
-$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wm/frankenwm/work/FrankenWM-*/config.def.h
+$ cp /path/to/your/modified/config.def.h ~/pkgsrc/wm/frankenwm/work/FrankenWM/config.def.h
 $ cd ../..
 $ mkpatches
 $ make clean
@@ -29,9 +34,3 @@ Now you can do:
 $ make 
 $ doas make install
 
-# Recompiling
-
-$ make clean
-$ make makepatchsum
-$ make
-$ doas make install
