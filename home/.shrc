@@ -96,6 +96,8 @@ ex ()
 	alias dumps="sxiv -t -p -b -r -g 1200x675 ~/Pictures/dumps &"
 	alias dumpscreen="cd ~/Pictures/dumps && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
         alias dumpwindow="cd ~/Pictures/dumps && scrot -ub -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
+	alias dumproot="sleep 5; xwd -root -silent | xwdtopnm | pnmtopng >"
+	alias dumpframe="xwd -frame -silent | xwdtopnm | pnmtopng >"
 	alias bar="ubar | unibar uni &"	
 	
 	#banana

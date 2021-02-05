@@ -4,6 +4,10 @@
 $ crontab -e
 
 Add:
-# run weather script for bar every 30 minutes
+
+# run weather script for bar every 30 minutes                                                  
 30      *       *       *       *       /home/$USER/.config/spectrwm/./weather.sh
+
+# run moon phase script for bar ever 30 minutes
+30      *       *       *       *       /home/$USER/.config/spectrwm/./moon.sh
 

@@ -24,6 +24,10 @@ Weather() {
     echo "$(cat /home/$USER/.config/spectrwm/weather.txt)"
 }
 
+Moon() {
+    echo "$(cat /home/$USER/.config/spectrwm/moon.txt)"
+}
+
 Pkgs() {
     echo "$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 }
@@ -34,7 +38,7 @@ Uptime() {
 
 Update() {
     echo \
-	"  $(Weather)     $(Uptime)     $(Pkgs)    $(Battery)   $(Volume)" &
+	"  $(Weather) $(Moon)     $(Uptime)     $(Pkgs)    $(Battery)   $(Volume)" &
     wait
 }
 

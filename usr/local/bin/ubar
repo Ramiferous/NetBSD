@@ -23,7 +23,7 @@ else
 fi
 
 # Date
-D="$(date '+%A,  %b %d  %I:%M')"
+D="$(date '+%a %b %d %I:%M')"
 
 # WS
 AWS="$(xprop -root '\t$0' _NET_CURRENT_DESKTOP | cut -f 2)"
@@ -33,8 +33,14 @@ NWS="$(xprop -root '\t$0' _NET_NUMBER_OF_DESKTOPS | cut -f 2)"
 # Weather
 WTTR="$(cat /home/$USER/.config/spectrwm/weather.txt)"
 
+# Moon phase
+MOON="$(cat /home/$USER/.config/spectrwm/moon.txt)"
+
+# Pripe
+PIPE="|"
+
 # Print
-echo " |$WS | $NWS  <|> $D <|> $WTTR | Uptime: $UP | pkgs: $PKGS | Vol: $LEV% | $STATE $BAT_PERC | "
+echo " |$WS | $NWS  <|> $D <|> $WTTR $MOON | Up $UP | $PKGS pkgs | Vol $LEV% | $STATE $BAT_PERC | "
 
 sleep 2
 done
