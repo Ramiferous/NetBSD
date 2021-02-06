@@ -1,43 +1,69 @@
 ! .Xresources
 
 ! Xft fonts
-Xft.autohint: 0
+Xft.autohint:   0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.dpi: 96
-Xft.rgba: rgb
+Xft.hinting:    1
+Xft.antialias:  1
+Xft.dpi:        96
+Xft.rgba:       rgb
 
 ! Xnotify
-xnotify.title.font: PragmataPro:pixelsize=14
-xnotify.body.font: PragmataPro:pixelsize=12
-xnotify.background: #1C1C1C
-xnotify.foreground: blanchedalmond
-xnotify.border: #494561
-xnotify.geometry: 0x40-4+20
+xnotify.title.font:  PragmataPro:pixelsize=14
+xnotify.body.font:   PragmataPro:pixelsize=12
+xnotify.background:  #1C1C1C
+xnotify.foreground:  blanchedalmond
+xnotify.border:      #494561
+xnotify.geometry:    0x40-4+20
 !xnotify.gravity: SE
 xnotify.borderWidth: 1
-xnotify.gap: 8
-xnotify.imageWidth: 50
-xnotify.leading: 5
-xnotify.padding: 10
+xnotify.gap:         8
+xnotify.imageWidth:  50
+xnotify.leading:     5
+xnotify.padding:     10
 !xnotify.shrink: true
-xnotify.alignment: left
+xnotify.alignment:   left
 
 ! Xclock
-XClock*update: 1            
-XClock*geometry: 170x170+1020+12
-XClock*majorColor:  rgba:f0/f0/19/7b
-XClock*minorColor:  rgba:a0/c0/f0/c0
-XClock*hourColor:   rgba:c9/66/11/72
-XClock*minuteColor: rgba:00/82/9f/72
-XClock*secondColor: rgba:50/93/30/6f
+XClock*update:      1            
+XClock*geometry:    170x170+1020+12
+XClock*majorColor:  #424242
+XClock*minorColor:  #84998F
+XClock*hourColor:   #D2A36E
+XClock*minuteColor: #78B0AE
+XClock*secondColor: #9DB87D
+
+! XLock
+XLock*dpmsoff:      0
+XLock*description:  on
+XLock*echokeys:     on
+XLock*echokey:      *
+XLock*showfps:      on
+XLock*program:      /usr/games/fortune -s
+XLock*mailCmd:      /usr/bin/mail -H
+XLock*lockdelay:    10
+XLock*timeout:      15
+XLock*use3d:        on
+XLock*delta3d:      1.5
+XLock*right3d:      Blue
+XLock*left3d:       Red
+XLock*boTh3d:       Magenta
+XLock*info:         "screen is locked"
+XLock*mode:         fzort
+XLock*username:     user:  
+xLock*password:     key:  
+Xlock*icongeometry: 96x96
+XLock*enablesaver:  on
+XLock*wireframe:    on
+XLock*fontset:      -artwiz-snap-normal-r-normal--10-100-75-75-p-90-iso10646-1
+XLock*planfontset:  -artwiz-edges-medium-r-normal--10-100-75-75-m-50-iso10646-1
+XLock*messagefont:  -artwiz-edges-medium-r-normal--10-100-75-75-m-50-iso10646-1
 
 ! Sixel settings
-XTerm*decTerminalID: vt340
-XTerm*sixelScrolling: true
-XTerm*regisScreenSize: 1366x768
+XTerm*decTerminalID:     vt340
+XTerm*sixelScrolling:    rue
+XTerm*regisScreenSize:   1366x768
 XTerm*numColorRegisters: 256
 
 ! General settings
@@ -104,35 +130,29 @@ XTerm*vt100.translations: #override \
 *scrollbar.background:		BG
 *scrollbar.foreground:		FG
 *borderColor:			BG
+*cursorColor:			#4c4c4c
 
 ! black
 *color0:			FG
 *color8:			#333333
-
 ! red
 *color1:			#825b69
 *color9:			#bda0aa
-
 ! green
 *color2:			#69825b
 *color10:			#aabda0
-
 ! yellow
 *color3:			#82755b
 *color11:			#bdb3a0
-
 ! blue
 *color4:			#5b6982
 *color12:			#a0aabd
-
 ! magenta
 *color5:			#755b82
 *color13:			#b3a0bd
-
 ! cyan
 *color6:			#5b8275
 *color14:			#a0bdb3
-
 ! white (gray)
 !*color7:			#d9d7cc
 !*color15:			#e5e5e5
