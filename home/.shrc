@@ -94,17 +94,17 @@ ex ()
 	alias pics="sxiv -t -p -b ~/Pictures &"
 	alias walls="sxiv -t -p -b -r -g 1200x675 ~/Pictures/walls &"
 	alias dumps="sxiv -t -p -b -r -g 1200x675 ~/Pictures/dumps &"
-	alias dumpscreen="cd ~/Pictures/dumps && scrot -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
-        alias dumpwindow="cd ~/Pictures/dumps && scrot -ub -q 100 -cd 3 '%m-%d-%Y-%R.png' && cd"
-	alias dumproot="sleep 5; xwd -root -silent | xwdtopnm | pnmtopng >"
-	alias dumpframe="xwd -frame -silent | xwdtopnm | pnmtopng >"
+	alias dumproot="sh ~/.scripts/dumproot.sh"
+	alias dumpframe="sh ~/.scripts/dumpframe.sh"
+	alias scrot='sleep 5; ffmpeg -loglevel fatal -f x11grab -i :0 -frames:v 1 "$(date +"scrot.%d-%m-%Y--%H.%M.%S.png")"'
 	alias bar="ubar | unibar uni &"	
 	
 	#banana
 	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
 	alias wttr="curl wttr.in/Melbourne?format=3"
-	alias moon="curl wttr.in/Moon"
-	alias charge="~/.charge.sh"
+	alias moon="curl wttr.in/Moon?T"
+	alias charge="~/.scripts/charge.sh"
+	alias sysinfo="~/.scripts/sysinfo.sh"
 	alias chat="~/Downloads/birch/./birch -u ramiferous"
         alias todo="cat ~/Documents/todo/todo.txt"
         alias todoed="vim ~/Documents/todo/todo.txt"
