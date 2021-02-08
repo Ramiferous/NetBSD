@@ -43,7 +43,7 @@ ex ()
 
 # ALIASES
 
-	#sysutils
+	# sysutils
 	alias c="clear"
 	alias v="vim"
 	alias pv="please vim"
@@ -68,7 +68,7 @@ ex ()
         alias listfonts="convert -list font | bat -p"
 	alias h='fc -l 1 | awk "{ sub(/^[[:blank:]]*[0-9]+[[:blank:]]+/, \"\"); print }" | fzf | tr -d \\n | xclip -selection c'
 	
-	#pkgin
+	# pkgin
 	alias search="pkgin search"
 	alias pkginstall="please pkgin install"
 	alias remove="please pkgin remove"
@@ -78,7 +78,7 @@ ex ()
 	alias autoremove="please pkgin autoremove"
 	alias pkgclean="please pkgin clean"
 
-	#pkgsrc	
+	# pkgsrc	
 	alias cvsup="cd ~/pkgsrc/ && please cvs update -dP && cd"
         alias wipup="cd ~/pkgsrc/wip/ && git pull -r && cd"
 	alias miccdd="please make install clean clean-depends distclean"
@@ -86,7 +86,7 @@ ex ()
 	alias rustupdate="rustup update"
 	alias cclean="rm -r .cache/*"
 
-	#meta	
+	# meta	
 	alias watch="mpv --geometry=700x393"
         alias listen="mpv --no-video"
         alias view="feh -g 700x393 --scale-down"
@@ -99,7 +99,7 @@ ex ()
 	alias scrot='sleep 5; ffmpeg -loglevel fatal -f x11grab -i :0 -frames:v 1 "$(date +"scrot.%d-%m-%Y--%H.%M.%S.png")"'
 	alias bar="ubar | unibar uni &"	
 	
-	#banana
+	# banana
 	alias w3m="w3m file:///home/dave/Downloads/startpage/index.html"
 	alias wttr="curl wttr.in/Melbourne?format=3"
 	alias moon="curl wttr.in/Moon?T"
@@ -124,5 +124,11 @@ ex ()
 	alias kbd="kb delete --id"
 	alias kbg="kb grep"
 	alias kbt="kb list --tags"
+
+	# git
+	alias status="git status"
+	alias add="git add ."
+	alias commit="git commit -m"
+	alias push="git push"
 	;;
 esac
