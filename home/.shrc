@@ -66,7 +66,7 @@ ex ()
         alias umnt="please umount -t msdos /home/$USER/Media && cd"
         alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
         alias listfonts="convert -list font | bat -p"
-	alias h='fc -l 1 | awk "{ sub(/^[[:blank:]]*[0-9]+[[:blank:]]+/, \"\"); print }" | fzf | tr -d \\n | xclip -selection c'
+	alias h="fc -l 1 | sed -Ee 's/^[[:blank:]]*[0-9]+[[:blank:]]+//' | fzf | tr -d \\n | xclip -selection c"
 	
 	# pkgin
 	alias search="pkgin search"
