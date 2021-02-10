@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/pkg/sbin/intel_backlight incr
