@@ -103,7 +103,7 @@ echo $"${wt}  /  _ .  |    ;         ➭ ${yl}GPU............:" $GPU
 echo $"${wt} ;-.-'|    \   |         ➭ ${yl}Resolution.....:" $RESOLUTION
 echo $"${wt}/   | \    _\  _\        ➭ ${yl}CPU............:" $CPU
 echo $"${wt}\__/'._;.  ==' ==\       ➭ ${yl}CPU usage......:" $LOAD1, $LOAD5, $LOAD15 '(1, 5, 15 min)'
-echo $"${wt}         \    \   |      ➭ ${yl}Memory used....:" $MEMORY1 / $MEMORY2
+echo $"${wt}         \    \   |      ➭ ${yl}Memory used....:" $MEMORY2 / $MEMORY1
 echo $"${wt}         /    /   /      ➭ ${yl}Swap in use....:" $SWAP
 echo $"${wt}         /-._/-._/       ➭ ${yl}Volume.........:" $LEVEL%
 echo $"${wt}         \    \  \       ➭ ${yl}Battery........:" $BATTERY $STATE
