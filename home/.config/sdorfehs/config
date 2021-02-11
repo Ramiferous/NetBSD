@@ -1,0 +1,42 @@
+set barpadding 5 2
+set gap 10
+set ignoreresizehints 1
+set onlyboarder 0
+
+bind s split
+bind C-s split
+bind S hsplit
+bind C-S hsplit
+
+bind c exec xterm
+bind C-c exec xterm
+
+bind s-f exec firefox
+bind s-d exec /home/$USER/.scripts/dmenu.sh 
+bind s-p exec /home/$user/.scripts/passmenu.sh 
+bind s-r exec restart
+bind s-q exec quit
+
+# screen lock
+bind L exec xlock
+
+# prevent accidental closes
+unbind k
+
+#swap workspaces,but define it in 'top' to avoit having to prefix with C-a
+definekey top M-1 vselect 0
+definekey top M-2 vselect 1
+definekey top M-3 vselect 2
+definekey top M-4 vselect 3
+
+# act normal but prevent firefox raising itself when links are opened from
+# other apps
+set rudeness 12
+
+# let popups stay centred
+unmanage xmessage
+unmanage xprompt
+ummanage sxiv
+
+# startup configureation
+# exec other statup apps here 
