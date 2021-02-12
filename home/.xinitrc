@@ -25,16 +25,17 @@ xrdb -merge ~/.Xresources && setxkbmap us
 
 #tiramisu -j | jq --raw-output --unbuffered '.summary + "\t" + .body' > $XNOTIFY_FIFO &
 
-xset b off
-xset +dpms
-xset dpms 1200 1500 1800
-xset r rate 200 50
-xset m 55/20 4
-xsetroot -solid "#84998F"
+#xset s off				# disable saver (using xlock)
+xset b off				# mute bell
+xset +dpms				# powersaving
+xset dpms 1200 1500 1800		# screen blanking
+xset r rate 200 50			# faster keypress
+xset m 55/20 4				# mouse acceleration
+xsetroot -cursor_name gumby		# stupid cursor
+xsetroot -solid "#84998F"		# set wallpaper
 #feh --bg-scale "/home/${USER}/Pictures/walls/tokyo.jpg"
-sh /home/$USER/.config/sdorfehs/./weather.sh &
-sleep 2; sh /home/$USER/.config/sdorfehs/./barscript.sh &
-intel_backlight 20
-#sleep 2; ubar | unibar uni &
+sh /home/dave/.scripts/weather.sh &	# get weather for bar
+intel_backlight 20			# set brightness
+#sleep 2; ubar | unibar uni &		# start unibar
 
 exec sdorfehs
