@@ -1,5 +1,7 @@
 [general]
-use_nerdfont=false
+use_nerdfont = false
+album_column = false
+notify = true
 
 [theme]
 playing = "red"
