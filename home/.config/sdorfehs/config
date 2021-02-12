@@ -13,7 +13,7 @@ bind C-c exec xterm
 
 bind s-f exec firefox
 bind s-d exec /home/$USER/.scripts/dmenu.sh 
-bind s-p exec /home/$user/.scripts/passmenu.sh 
+bind s-p exec /home/$USER/.scripts/passmenu.sh 
 bind s-r exec restart
 bind s-q exec quit
 
@@ -37,6 +37,8 @@ set rudeness 12
 unmanage xmessage
 unmanage xprompt
 ummanage sxiv
+unmanage mpv
 
 # startup configureation
-# exec other statup apps here 
+# exec other statup apps here
+exec sh /home/$USER/.config/sdorfehs/barscript.sh
