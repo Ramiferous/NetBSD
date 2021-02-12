@@ -22,16 +22,16 @@ pressed)
 			/usr/sbin/apm -d -z
 		fi
 		# ... waking up
-		sleep 1
+		sleep 1;
 	fi
+	/usr/pkg/sbin/intel_backlight 20
 	;;
 
 released)
 	case "${1}" in
 	vmt0)
 		# Virtual machine is resuming, restart the network
-		/etc/rc.d/dhcpcd restart &
-		intel_backlight 20
+		/etc/rc.d/dhcpcd restart
 		;;
 	esac
 	;;
