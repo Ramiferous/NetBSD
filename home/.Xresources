@@ -34,32 +34,6 @@ XClock*hourColor:   #D2A36E
 XClock*minuteColor: #78B0AE
 XClock*secondColor: #9DB87D
 
-! XLock
-XLock*dpmsoff:      0
-XLock*description:  on
-XLock*echokeys:     on
-XLock*echokey:      *
-XLock*showfps:      on
-XLock*program:      /usr/games/fortune -s
-XLock*mailCmd:      /usr/bin/mail -H
-XLock*lockdelay:    10
-XLock*timeout:      15
-XLock*use3d:        on
-XLock*delta3d:      1.5
-XLock*right3d:      Blue
-XLock*left3d:       Red
-XLock*boTh3d:       Magenta
-XLock*info:         "screen is locked"
-XLock*mode:         fzort
-XLock*username:     user:  
-xLock*password:     key:  
-Xlock*icongeometry: 96x96
-XLock*enablesaver:  on
-XLock*wireframe:    on
-XLock*fontset:      -artwiz-snap-normal-r-normal--10-100-75-75-p-90-iso10646-1
-XLock*planfontset:  -artwiz-edges-medium-r-normal--10-100-75-75-m-50-iso10646-1
-XLock*messagefont:  -artwiz-edges-medium-r-normal--10-100-75-75-m-50-iso10646-1
-
 ! Sixel settings
 XTerm*decTerminalID:     vt340
 XTerm*sixelScrolling:    rue

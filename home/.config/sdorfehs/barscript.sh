@@ -17,9 +17,9 @@ BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\.
 BAT_STATE="$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')"
 
 if [ "${BAT_STATE}" = "TRUE" ]; then
-    STATE='Charging'
+    STATE='+'
 else
-    STATE='Discharging'
+    STATE='-'
 fi
 
 # Date
@@ -40,7 +40,7 @@ MOON="$(cat /home/$USER/.config/spectrwm/moon.txt)"
 PIPE="|"
 
 # Print
-echo "$D ~ $WTTR | $STATE $BAT_PERC" > ~/.config/sdorfehs/bar
+echo "$D ~ $WTTR [$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
 
 sleep 1
 done

@@ -3,27 +3,24 @@ set gap 10
 set ignoreresizehints 1
 set onlyboarder 0
 
+fwcolor "#000000"
+bwcolor "#FFFFFF"
+
 bind s split
-bind C-s split
 bind S hsplit
-bind C-S hsplit
 
-bind c exec xterm
-bind C-c exec xterm
+definekey top s-Return exec xterm
 
-bind s-f exec firefox
-bind s-d exec /home/$USER/.scripts/dmenu.sh 
-bind s-p exec /home/$USER/.scripts/passmenu.sh 
-bind s-r exec restart
-bind s-q exec quit
+definekey top s-d exec /home/$USER/.scripts/dmenu.sh
+definekey top s-p exec /home/$USER/.scripts/passmenu.sh
 
 # screen lock
-bind L exec xlock
+bind L exec slock
 
 # prevent accidental closes
 unbind k
 
-#swap workspaces,but define it in 'top' to avoit having to prefix with C-a
+#swap workspaces, but define it in 'top' to avoid having to prefix with C-a
 definekey top M-1 vselect 0
 definekey top M-2 vselect 1
 definekey top M-3 vselect 2
