@@ -28,6 +28,12 @@ definekey top M-1 vselect 0
 definekey top M-2 vselect 1
 definekey top M-3 vselect 2
 definekey top M-4 vselect 3
+definekey top M-5 vselect 4
+definekey top M-6 vselect 5
+definekey top M-7 vselect 6
+definekey top M-8 vselect 7
+definekey top M-9 vselect 8
+definekey top M-0 vselect 9
 
 # act normal but prevent firefox raising itself when links are opened from
 # other apps
