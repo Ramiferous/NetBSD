@@ -14,8 +14,8 @@ SHELL=`basename "$SHELL"`
 UPTIME=$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')
 PKGS=`pkg_info | wc -l | sed -e 's/^[ \t]*//'`
 SWAP=`free -m | tail -n 1 | awk '{print $3" MB";}'`
-MEMORY1=`free -m | grep Mem | awk '{print $2" MB";}'`
-MEMORY2=`free -m | grep Mem | awk '{print $3" MB";}'`
+TOTALMEM=`free -m | grep Mem | awk '{print $2" MB";}'`
+MEMUSED=`free -m | grep Mem | awk '{print $3" MB";}'`
 LOAD1=`cat /proc/loadavg | awk {'print $1'}`
 LOAD5=`cat /proc/loadavg | awk {'print $2'}`
 LOAD15=`cat /proc/loadavg | awk {'print $3'}`
@@ -103,7 +103,7 @@ echo $"${wt}  /  _ .  |    ;         ➭ ${yl}GPU............:" $GPU
 echo $"${wt} ;-.-'|    \   |         ➭ ${yl}Resolution.....:" $RESOLUTION
 echo $"${wt}/   | \    _\  _\        ➭ ${yl}CPU............:" $CPU
 echo $"${wt}\__/'._;.  ==' ==\       ➭ ${yl}CPU usage......:" $LOAD1, $LOAD5, $LOAD15 '(1, 5, 15 min)'
-echo $"${wt}         \    \   |      ➭ ${yl}Memory used....:" $MEMORY2 / $MEMORY1
+echo $"${wt}         \    \   |      ➭ ${yl}Memory used....:" $MEMUSED / $TOTALMEM
 echo $"${wt}         /    /   /      ➭ ${yl}Swap in use....:" $SWAP
 echo $"${wt}         /-._/-._/       ➭ ${yl}Volume.........:" $LEVEL%
 echo $"${wt}         \    \  \       ➭ ${yl}Battery........:" $BATTERY $STATE

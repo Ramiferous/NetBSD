@@ -66,6 +66,7 @@ ex ()
         alias umnt="please umount -t msdos /home/$USER/Media && cd"
         alias fonts="cd /usr/pkg/share/fonts/X11 && pwd"
         alias listfonts="convert -list font | bat -p"
+	alias cursors="cat /usr/X11R7/include/X11/cursorfont.h | awk 'NR==30,EOF {print $2}' | cut -d_ -f2-9"
 	alias h='fc -l -n -r 1 | sed -Ee "s/^[[:blank:]]+//" | fzf | tr -d \\n | xclip -selection c'
 	
 	# pkgin
