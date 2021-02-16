@@ -91,8 +91,8 @@ XTerm*vt100.translations: #override \
 !*color6:     #6D878D
 !*color14:    #42717B
 !white
-*color7:     #6D6D6D
-*color15:    #EFF0F1
+!*color7:     #6D6D6D
+!*color15:    #EFF0F1
 
 
 ! Light !
@@ -128,6 +128,6 @@ XTerm*vt100.translations: #override \
 *color6:			#5b8275
 *color14:			#a0bdb3
 ! white (gray)
-!*color7:			#d9d7cc
-!*color15:			#e5e5e5
+*color7:			#6d6d6d
+*color15:			#d9d7cc
 

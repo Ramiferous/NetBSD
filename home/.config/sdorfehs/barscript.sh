@@ -8,8 +8,8 @@ UP="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 
 # Volume
-VOL="$(mixerctl outputs.master | sed -e 's|.*,||g')"
-LEV="$name$(expr \( $VOL \* 100 \) / 254)"
+LEV="$(mixerctl outputs.master | sed -e 's|.*,||g')"
+VOL="$name$(expr \( $LEV \* 100 \) / 254)"
 
 # Bettery
 BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')%"
@@ -40,7 +40,7 @@ MOON="$(cat /home/$USER/.config/spectrwm/moon.txt)"
 PIPE="|"
 
 # Print
-echo "$D ~ $WTTR [$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
+echo "$D ~ $WTTR [$PKGS#][$VOL%][$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
 
 sleep 1
 done
