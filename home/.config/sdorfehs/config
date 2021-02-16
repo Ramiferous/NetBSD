@@ -7,8 +7,8 @@ set onlyboarder 0
 fwcolor "#000000"
 bwcolor "#FFFFFF"
 
-bind s split
-bind S hsplit
+bind S split
+bind s hsplit
 
 # no prefix
 definekey top s-Return exec xterm
