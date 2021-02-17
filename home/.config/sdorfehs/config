@@ -15,12 +15,13 @@ definekey top s-Return exec xterm
 definekey top s-b exec intel_backlight 20
 
 # dmenu/passmenu
-definekey top s-d exec /home/$USER/.scripts/dmenu.sh
-definekey top s-p exec /home/$USER/.scripts/passmenu.sh
+definekey top s-d exec $HOME/.scripts/dmenu.sh
+definekey top s-p exec $HOME/.scripts/passmenu.sh
 
 # volume keys
 definekey top XF86AudioRaiseVolume exec mixerctl -w outputs.master+=12
 definekey top XF86AudioLowerVolume exec mixerctl -w outputs.master-=12
+definekey top XF86AudioMute exec $HOME/.scripts/mute.sh
 
 # quit sdorfehs
 bind Delete exec killall sdorfehs

@@ -10,6 +10,13 @@ PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 # Volume
 LEV="$(mixerctl outputs.master | sed -e 's|.*,||g')"
 VOL="$name$(expr \( $LEV \* 100 \) / 254)"
+MUTESTATE=$(mixerctl outputs.master3.mute | sed 's/^outputs.master3.mute=//')
+
+if [ "${MUTESTATE}" = "on" ]; then
+    MUTE=' MUTE'
+else
+    MUTE=''
+fi
 
 # Bettery
 BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')%"
@@ -23,7 +30,7 @@ else
 fi
 
 # Date
-D="$(date '+%a %b %d %I:%M')"
+D="$(date '+%a %d %b %I:%M')"
 
 # WS
 AWS="$(xprop -root '\t$0' _NET_CURRENT_DESKTOP | cut -f 2)"
@@ -40,7 +47,7 @@ MOON="$(cat $HOME/.scripts/moon.txt)"
 PIPE="|"
 
 # Print
-echo "$D ~ [$PKGS#][$VOL%][$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
+echo "$D ~ $WTTR [$PKGS#][$VOL%$MUTE][$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
 
 sleep 1
 done
