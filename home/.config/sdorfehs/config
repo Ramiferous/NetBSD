@@ -2,7 +2,7 @@
 set barpadding 5 2
 set gap 10
 set ignoreresizehints 1
-set onlyboarder 0
+set onlyborder 0
 
 fwcolor "#000000"
 bwcolor "#FFFFFF"

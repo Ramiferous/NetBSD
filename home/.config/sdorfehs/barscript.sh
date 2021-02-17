@@ -31,16 +31,16 @@ WS="$name $(expr \( $AWS + 1 \))"
 NWS="$(xprop -root '\t$0' _NET_NUMBER_OF_DESKTOPS | cut -f 2)"
 
 # Weather
-WTTR="$(cat /home/$USER/.scripts/weather.txt)"
+WTTR="$(cat $HOME/.scripts/weather.txt)"
 
 # Moon phase
-MOON="$(cat /home/$USER/.config/spectrwm/moon.txt)"
+MOON="$(cat $HOME/.scripts/moon.txt)"
 
 # Pipe
 PIPE="|"
 
 # Print
-echo "$D ~ $WTTR [$PKGS#][$VOL%][$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
+echo "$D ~ [$PKGS#][$VOL%][$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
 
 sleep 1
 done
