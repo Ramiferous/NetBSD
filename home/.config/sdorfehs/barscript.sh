@@ -9,7 +9,7 @@ PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
 
 # Volume
 LEV="$(mixerctl outputs.master | sed -e 's|.*,||g')"
-VOL="$name$(expr \( $LEV \* 100 \) / 254)"
+VOL="$((( $LEV ) * 100 / 254))"
 MUTESTATE=$(mixerctl outputs.master3.mute | sed 's/^outputs.master3.mute=//')
 
 if [ "${MUTESTATE}" = "on" ]; then
