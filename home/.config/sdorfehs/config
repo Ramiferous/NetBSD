@@ -1,11 +1,13 @@
 # general settings
-set barpadding 5 2
+set barpadding 5 1
 set gap 10
 set ignoreresizehints 1
 set onlyborder 0
-
-fwcolor "#000000"
-bwcolor "#FFFFFF"
+set font InputMonoCondensed:style=Regular:pixelsize=14:antialias=true
+set fgcolor "#FFFFFF"
+set bgcolor "#2D2D2D"
+set fwcolor "#000000"
+set bwcolor "#84998F"
 
 bind S split
 bind s hsplit
