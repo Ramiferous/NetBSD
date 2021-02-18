@@ -21,7 +21,7 @@ definekey top s-p exec $HOME/.scripts/passmenu.sh
 # volume keys
 definekey top XF86AudioRaiseVolume exec mixerctl -w outputs.master+=12
 definekey top XF86AudioLowerVolume exec mixerctl -w outputs.master-=12
-definekey top XF86AudioMute exec $HOME/.scripts/mute.sh
+definekey top XF86AudioMute exec mixerctl -w outputs.master3.mute++
 
 # quit sdorfehs
 bind Delete exec killall sdorfehs

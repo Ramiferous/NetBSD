@@ -13,7 +13,7 @@ VOL="$name$(expr \( $LEV \* 100 \) / 254)"
 MUTESTATE=$(mixerctl outputs.master3.mute | sed 's/^outputs.master3.mute=//')
 
 if [ "${MUTESTATE}" = "on" ]; then
-    MUTE=' MUTE'
+    MUTE='][MUTE'
 else
     MUTE=''
 fi

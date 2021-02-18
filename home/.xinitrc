@@ -22,9 +22,9 @@ xset r rate 200 50			# faster keypress
 xset m 55/20 4				# mouse acceleration
 xsetroot -cursor_name gumby		# stupid cursor
 xsetroot -solid "#84998F"		# set wallpaper
-sh /home/dave/.scripts/weather.sh &	# get weather for bar
+sleep 2; sh $HOME/.scripts/weather.sh	# get weather for bar
 intel_backlight 20			# set brightness
 #sleep 2; ubar | unibar uni &		# start unibar
-#feh --bg-scale "/home/${USER}/Pictures/walls/tokyo.jpg"
+#feh --bg-scale "$HOME/Pictures/walls/tokyo.jpg"
 
 exec sdorfehs
