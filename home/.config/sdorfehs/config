@@ -4,7 +4,7 @@ set gap 10
 set ignoreresizehints 1
 set onlyborder 0
 set font InputMonoCondensed:style=Regular:pixelsize=14:antialias=true
-set fgcolor "#FFFFFF"
+set fgcolor "#F2F2F2"
 set bgcolor "#2D2D2D"
 set fwcolor "#000000"
 set bwcolor "#84998F"

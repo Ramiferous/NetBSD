@@ -13,7 +13,7 @@ VOL="$name$(expr \( $LEV \* 100 \) / 254)"
 MUTESTATE=$(mixerctl outputs.master3.mute | sed 's/^outputs.master3.mute=//')
 
 if [ "${MUTESTATE}" = "on" ]; then
-    MUTE='][MUTE'
+    MUTE='[^fg(red)shhh^fg()]'
 else
     MUTE=''
 fi
@@ -24,9 +24,9 @@ BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\.
 BAT_STATE="$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')"
 
 if [ "${BAT_STATE}" = "TRUE" ]; then
-    STATE='+'
+    STATE='^fg(green)+^fg()'
 else
-    STATE='-'
+    STATE='^fg(red)-^fg()'
 fi
 
 # Date
@@ -47,7 +47,7 @@ MOON="$(cat $HOME/.scripts/moon.txt)"
 PIPE="|"
 
 # Print
-echo "$D ~ $WTTR [$PKGS#][$VOL%$MUTE][$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
+echo "$D ^fg(#808080)~^fg() $WTTR [$PKGS#][$VOL%]$MUTE[$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
 
 sleep 1
 done
