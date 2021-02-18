@@ -67,8 +67,10 @@ XTerm*vt100.translations: #override \
 ! Colors
 
 ! Dark !
-!*background: #1C1C1C
-!*foreground: blanchedalmond
+!*background:	#1C1C1C
+!*foreground:	blanchedalmond
+!*cursorColor:	rebeccapurple
+
 !black
 !*color0:     #AF875F
 !*color8:     #AF875F
@@ -107,8 +109,8 @@ XTerm*vt100.translations: #override \
 *cursorColor:			#4c4c4c
 
 ! black
-*color0:			FG
-*color8:			#333333
+*color0:			BG 
+*color8:			BG
 ! red
 *color1:			#825b69
 *color9:			#bda0aa
@@ -128,6 +130,6 @@ XTerm*vt100.translations: #override \
 *color6:			#5b8275
 *color14:			#a0bdb3
 ! white (gray)
-*color7:			#6d6d6d
-*color15:			#d9d7cc
+*color7:			FG
+*color15:			FG
 
