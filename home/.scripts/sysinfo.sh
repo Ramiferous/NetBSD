@@ -110,4 +110,4 @@ echo $"${wt}         \    \  \       ➭ ${yl}Battery........:" $BATTERY $STATE
 echo $"${wt}          '-._/._/       ➭ ${yl}Backlight......:" $BACKLIGHT
 echo $"${wt}                         ➭ ${yl}Colours........:" $COL
 echo $"${wt}                         ══════════════════════════════════════════════════"
-echo $"${bk}"
+echo $"${wt}"

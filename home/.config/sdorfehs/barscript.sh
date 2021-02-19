@@ -47,7 +47,7 @@ MOON="$(cat $HOME/.scripts/moon.txt)"
 PIPE="|"
 
 # Print
-echo "$D ^fg(#808080)~^fg() $WTTR [$PKGS#][$VOL%]$MUTE[$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
+echo "$D ~ $WTTR [$PKGS#][$VOL%]$MUTE[$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
 
 sleep 1
 done

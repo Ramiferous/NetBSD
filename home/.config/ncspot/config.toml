@@ -5,9 +5,9 @@ notify = true
 
 [theme]
 playing = "red"
-playing_selected = "#DCDAD5"
-highlight = "BDB3A0"
-statusbar_progress = "#BDB3A0"
-cmdline = "#BDB3A0"
-cmdline_bg = "white"
+playing_selected = "#eeeeee"
+highlight = "black"
+statusbar_progress = "yellow"
+cmdline = "white"
+cmdline_bg = "black"
 
