@@ -25,7 +25,7 @@ BACKLIGHT=$(intel_backlight | awk '{print $4}')
 RESOLUTION=$(xdpyinfo | awk '/^ +dimensions/ {print $2}')
 BATTERY=$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')%
 CHARGE=$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')
-if [ "${charge}" = "TRUE" ]; then
+if [ "${CHARGE}" = "TRUE" ]; then
     STATE='Charging'
 else
     STATE='Discharging'
