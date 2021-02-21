@@ -1,55 +1,52 @@
 #!/bin/sh
 
-while true; do
-# Uptime
-UP="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
+set -eu
+while :
+do
+	# Uptime
+	UP="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 
-# Packages
-PKGS="$(pkg_info | wc -l | sed -e 's/^[ \t]*//')"
+	# Packages
+	PKGS=$(pkg_info | wc -l)
+	PKGS=${PKGS##* }		# strip leading spaces
 
-# Volume
-LEV="$(mixerctl outputs.master | sed -e 's|.*,||g')"
-VOL="$((( $LEV ) * 100 / 254))"
-MUTESTATE=$(mixerctl outputs.master3.mute | sed 's/^outputs.master3.mute=//')
+	# Volume
+	VOL=$(mixerctl -n outputs.master)
+	VOL=${VOL%,*}			# strip other channel
+	VOL=$(( (VOL * 100) / 254 ))
+	MUTE=$(mixerctl -n outputs.master3.mute)
+	if [ $MUTE = on ]
+	then	MUTE="[^fg(red)shhh^fg()]"
+	else	MUTE=""
+	fi
 
-if [ "${MUTESTATE}" = "on" ]; then
-    MUTE='[^fg(red)shhh^fg()]'
-else
-    MUTE=''
-fi
+	# Battery
+	O=$(envstat -s 'acpibat0:charge,acpibat0:charging,acpibat0:discharge rate')
+	BAT_PERC=${O#*(}		# strip from beginning to '('
+	BAT_PERC=${BAT_PERC%%.*}	# strip from first '.' to end
+	BAT_DIS=${O#*discharge rate:}	# strip ^ -> 'discharge rate:' (incl.)
+	BAT_DIS=${BAT_DIS%charg*}	# snag discharge rate, or "N/A"
+	BAT_DIS=${BAT_DIS%W*}		#  " (contd.)
+	BAT_STATE=${O#*charging:}	# snag charge state
 
-# Bettery
-BAT_PERC="$(envstat -s acpibat0:charge | tail -1 | sed -e 's,.*(\([ ]*[0-9]*\)\..*,\1,g')%"
+	if [ $BAT_DIS != N/A ]		# note: do not quote any of these
+	then	STATE="^fg(red)-^fg()"	# discharging
+	elif [ $BAT_STATE = TRUE ]
+	then	STATE="^fg(green)+^fg()" # charging
+	else	STATE="^fg(green)=^fg()" # topped-up
+	fi
 
-BAT_STATE="$(envstat -d acpibat0 | awk 'FNR == 10 {print $2}')"
+	# Date
+	D=$(date '+%a %d %b %I:%M')
 
-if [ "${BAT_STATE}" = "TRUE" ]; then
-    STATE='^fg(green)+^fg()'
-else
-    STATE='^fg(red)-^fg()'
-fi
+	# Weather
+	WTTR=$(cat $HOME/.scripts/weather.txt)
 
-# Date
-D="$(date '+%a %d %b %I:%M')"
+	# Moon phase
+	MOON="$(cat $HOME/.scripts/moon.txt)"
 
-# WS
-AWS="$(xprop -root '\t$0' _NET_CURRENT_DESKTOP | cut -f 2)"
-WS="$name $(expr \( $AWS + 1 \))"
-NWS="$(xprop -root '\t$0' _NET_NUMBER_OF_DESKTOPS | cut -f 2)"
+	# Print
+	echo "$D ~ $WTTR [$PKGS#][$VOL%]$MUTE[$STATE$BAT_PERC%]" > ~/.config/sdorfehs/bar
 
-# Weather
-WTTR="$(cat $HOME/.scripts/weather.txt)"
-
-# Moon phase
-MOON="$(cat $HOME/.scripts/moon.txt)"
-
-# Pipe
-PIPE="|"
-
-# Print
-echo "$D ~ $WTTR [$PKGS#][$VOL%]$MUTE[$STATE$BAT_PERC]" > ~/.config/sdorfehs/bar
-
-sleep 1
+	sleep 1
 done
-exit 0
-
