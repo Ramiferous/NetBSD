@@ -1,5 +1,5 @@
 # NetBSD
-A personal repository of my NetBSD dotfiles. Most of the configs have been yanked from other, more experienced users such as [Pin](https://github.com/voidpin)
+A personal repository of my NetBSD dotfiles. Most of the configs have been yanked from other, more experienced users such as [Pin](https://codeberg.org/pin/)
 
 Take what you want, just dont ask me any questions :P
 
