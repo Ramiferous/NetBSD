@@ -3,4 +3,4 @@ This is just a personal repository of my NetBSD dotfiles. Most of the configs ha
 
 Take what you want, just dont ask me any questions :P
 
-![alt text](https://i.postimg.cc/hgQ9SPj2/root-14-02-2021-23-02.png)
+![alt text](https://i.postimg.cc/SRPQCYVM/root-19-02-2021-11-58.png)
